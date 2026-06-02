@@ -134,41 +134,7 @@ export default async function ProjectDetail({
         )}
 
         <section className="mt-20">
-          <SectionLabel n={sectionNum(1)} title="Snapshot" />
-          <div
-            className={`mt-6 grid grid-cols-1 gap-4 ${
-              meta.stats.length >= 3 ? "sm:grid-cols-3" : "sm:grid-cols-2"
-            }`}
-            data-stagger
-          >
-            {meta.stats.map((stat, i) => (
-              <div
-                key={i}
-                className="relative overflow-hidden rounded-2xl border border-line bg-panel p-6"
-              >
-                <div
-                  className="absolute right-0 top-0 h-28 w-28 -translate-y-1/2 translate-x-1/2 rounded-full opacity-15"
-                  style={{ background: meta.accentColor }}
-                />
-                <p className="font-mono text-xs uppercase tracking-wider text-subtle">
-                  {stat.label}
-                </p>
-                <p
-                  className="mt-3 font-display text-4xl font-bold tracking-tight"
-                  style={{ color: meta.accentColor }}
-                >
-                  {stat.value}
-                </p>
-                {stat.detail && (
-                  <p className="mt-2 text-sm text-muted">{stat.detail}</p>
-                )}
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="mt-20">
-          <SectionLabel n={sectionNum(2)} title="Role" />
+          <SectionLabel n={sectionNum(1)} title="Role" />
           <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3" data-stagger>
             <div className="rounded-xl border border-line bg-panel p-5">
               <dt className="font-mono text-xs uppercase tracking-wider text-subtle">
@@ -186,7 +152,7 @@ export default async function ProjectDetail({
         </section>
 
         <section className="mt-20">
-          <SectionLabel n={sectionNum(3)} title="Visuals" />
+          <SectionLabel n={sectionNum(2)} title="Visuals" />
           <div className="mt-6 grid grid-cols-1 gap-5 lg:grid-cols-2" data-stagger>
             {meta.media.map((item, i) => (
               <figure
@@ -230,7 +196,7 @@ export default async function ProjectDetail({
         </section>
 
         <section className="mt-20">
-          <SectionLabel n={sectionNum(4)} title="Problem Solving" />
+          <SectionLabel n={sectionNum(3)} title="Problem Solving" />
           <p className="mt-2 text-sm text-muted">
             문제를 어떻게 정의했고, 어떤 구조적 판단으로 풀었는지.
           </p>
@@ -297,7 +263,7 @@ export default async function ProjectDetail({
         </section>
 
         <section className="mt-20">
-          <SectionLabel n={sectionNum(5)} title="Tech Decisions" />
+          <SectionLabel n={sectionNum(4)} title="Tech Decisions" />
           <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-3" data-stagger>
             {meta.techDecisions.map((td, i) => (
               <div
@@ -316,7 +282,7 @@ export default async function ProjectDetail({
         </section>
 
         <section className="mt-20">
-          <SectionLabel n={sectionNum(6)} title="Retrospective" />
+          <SectionLabel n={sectionNum(5)} title="Retrospective" />
           <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2" data-stagger>
             <div className="rounded-xl border-l-2 border-accent-pink bg-panel p-6">
               <p className="font-mono text-xs uppercase tracking-wider text-accent-pink">

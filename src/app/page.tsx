@@ -364,34 +364,7 @@ export default async function Home() {
                         {meta.impact}
                       </p>
 
-                      {meta.stats.length > 0 && (
-                        <div
-                          className={`mt-6 grid gap-2 ${
-                            meta.stats.length >= 3
-                              ? "grid-cols-2 sm:grid-cols-3"
-                              : "grid-cols-2"
-                          }`}
-                        >
-                          {meta.stats.slice(0, 3).map((stat) => (
-                            <div
-                              key={`${meta.slug}-${stat.label}`}
-                              className="rounded-xl border border-line bg-panel-2/40 px-3 py-3"
-                            >
-                              <p
-                                className="font-display text-2xl font-bold"
-                                style={{ color: meta.accentColor }}
-                              >
-                                {stat.value}
-                              </p>
-                              <p className="mt-1 font-mono text-[10px] uppercase tracking-wider text-subtle">
-                                {stat.label}
-                              </p>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-
-                      <div className="mt-5 flex flex-wrap gap-1.5">
+                      <div className="mt-6 flex flex-wrap gap-1.5">
                         {meta.techStack.slice(0, 6).map((tech) => (
                           <TechBadge key={tech} name={tech} variant="compact" />
                         ))}
