@@ -1,0 +1,60 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="imo-preview-bg" x1="120" y1="96" x2="1080" y2="640" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A"/>
+      <stop offset="1" stop-color="#082F49"/>
+    </linearGradient>
+    <linearGradient id="imo-preview-accent" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#67E8F9"/>
+      <stop offset="1" stop-color="#3B82F6"/>
+    </linearGradient>
+    <filter id="imo-preview-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#020617" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="720" rx="32" fill="url(#imo-preview-bg)"/>
+  <circle cx="150" cy="120" r="140" fill="#22D3EE" fill-opacity="0.12"/>
+  <circle cx="1048" cy="598" r="220" fill="#3B82F6" fill-opacity="0.12"/>
+
+  <text x="84" y="98" fill="#E0F2FE" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="700">IMO 핵심 흐름</text>
+  <text x="84" y="132" fill="#BFDBFE" font-family="Segoe UI, Arial, sans-serif" font-size="20">onboarding → workout start handshake → session stats / chatbot</text>
+
+  <g filter="url(#imo-preview-shadow)">
+    <rect x="96" y="198" width="284" height="386" rx="34" fill="#EFF6FF" fill-opacity="0.96" stroke="#67E8F9" stroke-width="2"/>
+    <rect x="174" y="220" width="128" height="10" rx="5" fill="#93C5FD"/>
+    <text x="132" y="274" fill="#0F172A" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">1. Onboarding</text>
+    <rect x="132" y="304" width="212" height="132" rx="26" fill="#DBEAFE"/>
+    <text x="156" y="354" fill="#1E3A8A" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">프로필 입력</text>
+    <text x="156" y="386" fill="#334155" font-family="Segoe UI, Arial, sans-serif" font-size="18">로그인 · 장비 준비 · 운동 선택</text>
+    <rect x="132" y="468" width="156" height="42" rx="21" fill="url(#imo-preview-accent)"/>
+    <text x="164" y="496" fill="#F8FAFC" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700">운동 준비</text>
+  </g>
+
+  <g filter="url(#imo-preview-shadow)">
+    <rect x="458" y="164" width="284" height="430" rx="34" fill="#EFF6FF" fill-opacity="0.98" stroke="#38BDF8" stroke-width="2"/>
+    <rect x="536" y="186" width="128" height="10" rx="5" fill="#93C5FD"/>
+    <text x="494" y="240" fill="#0F172A" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">2. Workout Start</text>
+    <rect x="494" y="270" width="212" height="142" rx="26" fill="#D1FAE5"/>
+    <text x="518" y="320" fill="#065F46" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">App ↔ Pi</text>
+    <text x="518" y="352" fill="#334155" font-family="Segoe UI, Arial, sans-serif" font-size="18">사용자가 눌러야 monitoring 진입</text>
+    <rect x="494" y="448" width="212" height="98" rx="22" fill="#DBEAFE"/>
+    <text x="518" y="488" fill="#1E3A8A" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700">Redis 상태 공유</text>
+    <text x="518" y="516" fill="#334155" font-family="Segoe UI, Arial, sans-serif" font-size="16">세션 상태 · 캐시 · 결과 집계</text>
+  </g>
+
+  <g filter="url(#imo-preview-shadow)">
+    <rect x="820" y="198" width="284" height="386" rx="34" fill="#EFF6FF" fill-opacity="0.96" stroke="#60A5FA" stroke-width="2"/>
+    <rect x="898" y="220" width="128" height="10" rx="5" fill="#93C5FD"/>
+    <text x="856" y="274" fill="#0F172A" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">3. Stats & Chat</text>
+    <rect x="856" y="304" width="212" height="98" rx="22" fill="#DBEAFE"/>
+    <text x="880" y="344" fill="#1E3A8A" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700">주간 추세 / 세션 기록</text>
+    <text x="880" y="372" fill="#334155" font-family="Segoe UI, Arial, sans-serif" font-size="16">7일 슬롯 기준으로 시각화</text>
+    <rect x="856" y="432" width="212" height="114" rx="22" fill="#E0F2FE"/>
+    <text x="880" y="474" fill="#0C4A6E" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700">Gemini 운동 챗봇</text>
+    <text x="880" y="504" fill="#334155" font-family="Segoe UI, Arial, sans-serif" font-size="16">대화형 코치 · 컨텍스트 히스토리</text>
+  </g>
+
+  <path d="M380 392H458" stroke="url(#imo-preview-accent)" stroke-width="8" stroke-linecap="round"/>
+  <path d="M742 392H820" stroke="url(#imo-preview-accent)" stroke-width="8" stroke-linecap="round"/>
+</svg>

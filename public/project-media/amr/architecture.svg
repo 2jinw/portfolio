@@ -1,0 +1,67 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="120" y1="80" x2="1080" y2="640" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A"/>
+      <stop offset="1" stop-color="#172554"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#8B5CF6"/>
+      <stop offset="1" stop-color="#38BDF8"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#020617" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="720" rx="32" fill="url(#bg)"/>
+  <circle cx="1020" cy="120" r="180" fill="#8B5CF6" fill-opacity="0.12"/>
+  <circle cx="180" cy="620" r="220" fill="#38BDF8" fill-opacity="0.1"/>
+
+  <text x="84" y="98" fill="#E2E8F0" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="700">AMR 시뮬레이션 플랫폼</text>
+  <text x="84" y="132" fill="#94A3B8" font-family="Segoe UI, Arial, sans-serif" font-size="20">Isaac Lab · multi-docking runtime · 6/12/18대 scaling · EC2/Caddy/Jenkins</text>
+
+  <g filter="url(#shadow)">
+    <rect x="84" y="188" width="286" height="138" rx="26" fill="#0F172A" stroke="#64748B" stroke-width="2"/>
+    <text x="116" y="236" fill="#A5F3FC" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700">Simulation Core</text>
+    <text x="116" y="274" fill="#E2E8F0" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="700">Isaac Lab</text>
+    <text x="116" y="308" fill="#CBD5E1" font-family="Segoe UI, Arial, sans-serif" font-size="18">RL env · assets · scenes · planner</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="456" y="188" width="286" height="138" rx="26" fill="#111827" stroke="#8B5CF6" stroke-width="2"/>
+    <text x="488" y="236" fill="#DDD6FE" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700">Runtime Loop</text>
+    <text x="488" y="274" fill="#F8FAFC" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="700">play_navigation_multi.py</text>
+    <text x="488" y="308" fill="#CBD5E1" font-family="Segoe UI, Arial, sans-serif" font-size="18">dock → retreat → returning → done</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="828" y="188" width="286" height="138" rx="26" fill="#082F49" stroke="#38BDF8" stroke-width="2"/>
+    <text x="860" y="236" fill="#BAE6FD" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700">Observability</text>
+    <text x="860" y="274" fill="#F8FAFC" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="700">Dashboard · Telemetry</text>
+    <text x="860" y="308" fill="#CBD5E1" font-family="Segoe UI, Arial, sans-serif" font-size="18">status mapping · KPI snapshot</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="176" y="418" width="286" height="160" rx="28" fill="#1E1B4B" stroke="#A78BFA" stroke-width="2"/>
+    <text x="208" y="466" fill="#DDD6FE" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700">Training Variants</text>
+    <text x="208" y="506" fill="#F8FAFC" font-family="Segoe UI, Arial, sans-serif" font-size="48" font-weight="700">6 / 12 / 18</text>
+    <text x="208" y="540" fill="#CBD5E1" font-family="Segoe UI, Arial, sans-serif" font-size="18">same codebase · config-only scale-up</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="612" y="418" width="394" height="160" rx="28" fill="#0F172A" stroke="#38BDF8" stroke-width="2"/>
+    <text x="644" y="466" fill="#BAE6FD" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700">Delivery Path</text>
+    <text x="644" y="504" fill="#F8FAFC" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="700">GitLab → Jenkins → Caddy → EC2</text>
+    <text x="644" y="540" fill="#CBD5E1" font-family="Segoe UI, Arial, sans-serif" font-size="18">build, deploy, verify on the same GPU-friendly environment</text>
+  </g>
+
+  <path d="M370 257H456" stroke="url(#accent)" stroke-width="8" stroke-linecap="round"/>
+  <path d="M742 257H828" stroke="url(#accent)" stroke-width="8" stroke-linecap="round"/>
+  <path d="M598 326V418" stroke="url(#accent)" stroke-width="8" stroke-linecap="round"/>
+  <path d="M462 498H612" stroke="url(#accent)" stroke-width="8" stroke-linecap="round"/>
+
+  <circle cx="412" cy="257" r="8" fill="#E9D5FF"/>
+  <circle cx="784" cy="257" r="8" fill="#BAE6FD"/>
+  <circle cx="598" cy="372" r="8" fill="#C4B5FD"/>
+  <circle cx="534" cy="498" r="8" fill="#BFDBFE"/>
+</svg>
