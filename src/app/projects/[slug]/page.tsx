@@ -330,36 +330,7 @@ export default async function ProjectDetail({
         </section>
 
         <section className="mt-20">
-          <SectionLabel n={sectionNum(6)} title="Outcomes" />
-          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3" data-stagger>
-            {meta.outcomes.map((o, i) => (
-              <div
-                key={i}
-                className="relative overflow-hidden rounded-2xl border border-line bg-panel p-6"
-              >
-                <div
-                  className="absolute right-0 top-0 h-32 w-32 -translate-y-1/2 translate-x-1/2 rounded-full opacity-12"
-                  style={{ background: meta.accentColor }}
-                />
-                <p className="font-mono text-xs uppercase tracking-wider text-subtle">
-                  {o.label}
-                </p>
-                <p
-                  className="mt-3 font-display text-4xl font-bold tracking-tight"
-                  style={{ color: meta.accentColor }}
-                >
-                  {o.value}
-                </p>
-                {o.detail && (
-                  <p className="mt-2 text-sm text-muted">{o.detail}</p>
-                )}
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="mt-20">
-          <SectionLabel n={sectionNum(7)} title="Retrospective" />
+          <SectionLabel n={sectionNum(6)} title="Retrospective" />
           <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2" data-stagger>
             <div className="rounded-xl border-l-2 border-accent-pink bg-panel p-6">
               <p className="font-mono text-xs uppercase tracking-wider text-accent-pink">
