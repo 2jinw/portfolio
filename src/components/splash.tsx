@@ -7,7 +7,9 @@ type Phase = "intro" | "out" | "done";
 const NAME = "Lee Jinwon";
 const COUNT_DURATION = 1800;
 const OUT_DELAY = 1900;
-const DONE_DELAY = 2800;
+// 콘텐츠 reveal 트랜지션(OUT_DELAY + 100ms delay + 1100ms)이 ~3100ms에 끝나므로
+// 그 이후에 스플래시를 제거해야 마지막 구간이 끊기지 않고 매끄럽게 이어진다.
+const DONE_DELAY = 3300;
 const STORAGE_KEY = "splash-seen-v1";
 
 export function Splash() {

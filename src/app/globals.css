@@ -368,6 +368,9 @@ body::before {
 
 html {
   scroll-behavior: smooth;
+  /* 스플래시 중 overflow:hidden ↔ 해제 시 스크롤바 폭만큼 콘텐츠가 밀리는
+     점프를 막기 위해 스크롤바 자리를 항상 예약 */
+  scrollbar-gutter: stable;
 }
 
 /* ============================================================
