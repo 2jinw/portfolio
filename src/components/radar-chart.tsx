@@ -18,6 +18,8 @@ export function RadarChart({ data, size = 380, labelSize = 11 }: Props) {
   const cy = size / 2;
   const radius = size * 0.36;
   const n = data.length;
+  // 좌우 라벨(EMBEDDED·FRONTEND 등)이 viewBox 밖으로 잘리지 않도록 가로 여백 확보
+  const padX = Math.round(size * 0.17);
 
   // Angle for axis i (0 at top, clockwise)
   const angleOf = (i: number) => (Math.PI * 2 * i) / n - Math.PI / 2;
@@ -55,7 +57,7 @@ export function RadarChart({ data, size = 380, labelSize = 11 }: Props) {
 
   return (
     <svg
-      viewBox={`0 0 ${size} ${size}`}
+      viewBox={`${-padX} 0 ${size + padX * 2} ${size}`}
       className="block h-auto w-full max-w-full text-subtle"
       role="img"
       aria-label="개발 영역별 자체 평가 분포"

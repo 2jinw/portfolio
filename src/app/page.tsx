@@ -279,7 +279,7 @@ export default async function Home() {
                         style={{ background: "var(--accent-pink)" }}
                         aria-hidden
                       />
-                      <span className="font-mono uppercase tracking-wider">
+                      <span className="shrink-0 whitespace-nowrap font-mono uppercase tracking-wider">
                         {s.label}
                       </span>
                       {s.detail && (
@@ -289,7 +289,7 @@ export default async function Home() {
                   ))}
                 </ul>
               </div>
-              <div className="mx-auto w-full max-w-[380px]">
+              <div className="mx-auto w-full max-w-[460px]">
                 <RadarChart data={skillAxes} size={380} />
               </div>
             </div>
