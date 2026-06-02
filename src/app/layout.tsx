@@ -18,15 +18,15 @@ const mono = JetBrains_Mono({
   display: "swap",
 });
 
-// 배포 후 실제 도메인을 채우면 OG 이미지·canonical URL이 절대경로로 생성됩니다.
-// 예: const SITE_URL = "https://jinwon.dev";
-// const SITE_URL = "https://<your-domain>";
+// GitHub Pages 배포 주소. metadataBase로 OG 이미지·canonical이 절대경로로 생성됨.
+const SITE_ORIGIN = "https://2jinw.github.io";
+const SITE_URL = "https://2jinw.github.io/portfolio/";
 
 const SITE_DESCRIPTION =
   "Flutter 앱 · Spring/Django 백엔드 · Isaac Lab 시뮬레이션 · 라즈베리파이까지 — 끝에서 끝까지 책임지는 풀스택 엔지니어 이진원의 포트폴리오.";
 
 export const metadata: Metadata = {
-  // metadataBase: new URL(SITE_URL), // 배포 도메인이 정해지면 주석 해제
+  metadataBase: new URL(SITE_ORIGIN),
   title: {
     default: "이진원 · Full-stack Engineer Portfolio",
     template: "%s · 이진원 Portfolio",
@@ -52,13 +52,23 @@ export const metadata: Metadata = {
     siteName: "이진원 · Portfolio",
     title: "이진원 · Full-stack Engineer Portfolio",
     description: SITE_DESCRIPTION,
-    // url: SITE_URL,
-    // images: ["/og.png"], // 1200×630 OG 이미지를 public/에 두고 metadataBase 설정 후 활성화
+    url: SITE_URL,
+    // basePath(/portfolio) 때문에 메타 이미지 경로는 전체 절대 URL로 직접 지정해야
+    // 미리보기가 정상 노출됨. (Next 메타 라우트가 basePath를 안 붙이는 이슈 회피)
+    images: [
+      {
+        url: `${SITE_URL}og.png`,
+        width: 1200,
+        height: 630,
+        alt: "이진원 · Full-stack Engineer Portfolio",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "이진원 · Full-stack Engineer Portfolio",
     description: SITE_DESCRIPTION,
+    images: [`${SITE_URL}og.png`],
   },
   robots: { index: true, follow: true },
 };
