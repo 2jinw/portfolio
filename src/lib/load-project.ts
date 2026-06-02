@@ -46,7 +46,7 @@ function pickNotableMRs(mrs: GitlabMR[], max = 8): GitlabMR[] {
     .slice(0, max);
 }
 
-const DATA_DIR = path.resolve(process.cwd(), "..", "portfolio_data");
+const DATA_DIR = path.resolve(process.cwd(), "portfolio_data");
 
 async function readJson(file: string): Promise<GitlabExport> {
   const buf = await fs.readFile(path.join(DATA_DIR, file), "utf-8");
