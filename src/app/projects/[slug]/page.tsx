@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ViewTransition } from "react";
 import { notFound } from "next/navigation";
 import { projects } from "@/data/projects";
-import { GITLAB_ACCESS_NOTE } from "@/data/profile";
+import { profile, GITLAB_ACCESS_NOTE } from "@/data/profile";
 import { loadProject } from "@/lib/load-project";
 import { asset } from "@/lib/asset";
 import { TechBadge } from "@/components/tech-badge";
@@ -42,7 +42,7 @@ export default async function ProjectDetail({
   const project = await loadProject(slug);
   if (!project) notFound();
 
-  const { meta, raw } = project;
+  const { meta } = project;
   const sectionNum = (base: number) => {
     const n = meta.background ? base + 1 : base;
     return String(n).padStart(2, "0");
@@ -358,13 +358,12 @@ export default async function ProjectDetail({
             다른 프로젝트 보기
           </Link>
           <a
-            href={raw.web_url}
+            href={profile.contact.github}
             target="_blank"
             rel="noopener noreferrer"
-            title={GITLAB_ACCESS_NOTE}
             className="font-mono text-muted transition-colors hover:text-ink"
           >
-            GitLab repo ↗ <span className="text-subtle">· 내부망</span>
+            GitHub ↗
           </a>
         </footer>
       </div>
