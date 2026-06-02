@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ViewTransition } from "react";
 import { notFound } from "next/navigation";
 import { projects } from "@/data/projects";
-import { profile, GITLAB_ACCESS_NOTE } from "@/data/profile";
+import { GITLAB_ACCESS_NOTE } from "@/data/profile";
 import { loadProject } from "@/lib/load-project";
 import { asset } from "@/lib/asset";
 import { TechBadge } from "@/components/tech-badge";
@@ -359,67 +359,7 @@ export default async function ProjectDetail({
         </section>
 
         <section className="mt-20">
-          <SectionLabel n={sectionNum(7)} title="Selected MRs" />
-
-          {/* 접근 안내 — 사내 GitLab은 외부에서 열람이 어려움을 명시 */}
-          <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 rounded-xl border border-dashed border-line bg-panel-2/30 px-4 py-3 text-xs text-muted">
-            <span className="inline-flex items-center gap-1.5 font-mono uppercase tracking-wider text-subtle">
-              <span aria-hidden>🔒</span> 내부망
-            </span>
-            <span>{GITLAB_ACCESS_NOTE}.</span>
-            {profile.contact.github && (
-              <a
-                href={profile.contact.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-mono text-accent-blue underline-offset-2 hover:underline"
-              >
-                GitHub 미러 ↗
-              </a>
-            )}
-          </div>
-
-          <ul className="mt-4 space-y-3" data-stagger>
-            {meta.featuredMRs.map((mr, i) => (
-              <li
-                key={i}
-                className="overflow-hidden rounded-2xl border border-line bg-panel transition-colors hover:border-line-strong"
-              >
-                <div className="p-5">
-                  <a
-                    href={mr.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title={GITLAB_ACCESS_NOTE}
-                    className="font-display text-lg font-semibold transition-colors hover:text-ink"
-                  >
-                    {mr.label}
-                    <span className="ml-1.5 align-middle font-mono text-[10px] uppercase tracking-wider text-subtle">
-                      ↗ 내부망
-                    </span>
-                  </a>
-                  <p className="mt-2 text-sm text-muted">{mr.note}</p>
-                </div>
-                {/* MR 스크린샷이 있으면 링크 없이도 변경 내용을 확인할 수 있게 표시 */}
-                {mr.screenshot && (
-                  <figure className="border-t border-line bg-page/70 p-4">
-                    <Image
-                      src={asset(mr.screenshot)}
-                      alt={`${mr.label} 변경 화면 스크린샷`}
-                      width={1600}
-                      height={900}
-                      unoptimized
-                      className="w-full rounded-lg border border-line bg-page object-cover"
-                    />
-                  </figure>
-                )}
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="mt-20">
-          <SectionLabel n={sectionNum(8)} title="Retrospective" />
+          <SectionLabel n={sectionNum(7)} title="Retrospective" />
           <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2" data-stagger>
             <div className="rounded-xl border-l-2 border-accent-pink bg-panel p-6">
               <p className="font-mono text-xs uppercase tracking-wider text-accent-pink">
