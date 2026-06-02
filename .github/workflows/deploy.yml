@@ -23,7 +23,9 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - run: npm ci
+      # npm ci 대신 install 사용: Windows에서 생성된 lock 파일에 Linux용 optional
+      # 네이티브 패키지(@emnapi/* 등)가 누락돼 있어 ci(엄격 검증)는 실패하기 때문.
+      - run: npm install --no-audit --no-fund
       - name: Build static site
         run: npm run build
         env:
