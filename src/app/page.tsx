@@ -323,7 +323,7 @@ export default async function Home() {
             direction="right"
           >
             <ul className="space-y-6">
-              {projects.map(({ meta }, idx) => (
+              {projects.map((meta, idx) => (
                 <Reveal
                   as="li"
                   key={meta.slug}

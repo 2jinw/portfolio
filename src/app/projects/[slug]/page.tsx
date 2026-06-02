@@ -39,10 +39,8 @@ export default async function ProjectDetail({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const project = await loadProject(slug);
-  if (!project) notFound();
-
-  const { meta } = project;
+  const meta = await loadProject(slug);
+  if (!meta) notFound();
   const sectionNum = (base: number) => {
     const n = meta.background ? base + 1 : base;
     return String(n).padStart(2, "0");
