@@ -149,15 +149,6 @@ export default async function Home() {
                   >
                     {profile.contact.email}
                   </a>
-                  <a
-                    className="rounded-full border border-line bg-panel px-5 py-2.5 transition-colors hover:border-accent-blue hover:text-accent-blue"
-                    href={profile.contact.gitlab}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title="SSAFY 사내 GitLab · 열람에 로그인이 필요할 수 있습니다"
-                  >
-                    GitLab ↗
-                  </a>
                   {profile.contact.github && (
                     <a
                       className="rounded-full border border-line bg-panel px-5 py-2.5 transition-colors hover:border-accent-blue hover:text-accent-blue"
@@ -553,15 +544,6 @@ export default async function Home() {
                   href={`mailto:${profile.contact.email}`}
                 >
                   Email →
-                </a>
-                <a
-                  className="rounded-full border border-line bg-panel px-6 py-2.5 transition-colors hover:border-accent-blue hover:text-accent-blue"
-                  href={profile.contact.gitlab}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="SSAFY 사내 GitLab · 열람에 로그인이 필요할 수 있습니다"
-                >
-                  GitLab ↗
                 </a>
                 {profile.contact.github && (
                   <a

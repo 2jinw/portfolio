@@ -14,17 +14,9 @@ export const profile = {
   },
   contact: {
     email: "ljin2091@naver.com",
-    gitlab: "https://lab.ssafy.com/ljin2091",
-    // SSAFY 사내 GitLab은 외부에서 로그인 없이 열람이 어렵습니다.
-    // 외부 공개용 GitHub 프로필 — 채워지면 홈/상세 페이지에 GitHub 버튼이
-    // 자동으로 노출됩니다. (비어 있으면 숨김)
     github: "https://github.com/2jinw",
   },
 } as const;
-
-/** SSAFY 사내 GitLab 접근 안내 — MR 링크 옆에 표기되는 공통 문구. */
-export const GITLAB_ACCESS_NOTE =
-  "SSAFY 사내 GitLab · 열람에 로그인이 필요할 수 있습니다";
 
 export type Award = {
   year: string;

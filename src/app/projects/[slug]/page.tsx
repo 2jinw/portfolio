@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ViewTransition } from "react";
 import { notFound } from "next/navigation";
 import { projects } from "@/data/projects";
-import { profile, GITLAB_ACCESS_NOTE } from "@/data/profile";
+import { profile } from "@/data/profile";
 import { loadProject } from "@/lib/load-project";
 import { asset } from "@/lib/asset";
 import { TechBadge } from "@/components/tech-badge";
@@ -285,19 +285,7 @@ export default async function ProjectDetail({
                 {p.evidence && (
                   <div className="mt-4 flex items-center gap-2 font-mono text-xs text-subtle">
                     <span aria-hidden>↗</span>
-                    {p.evidence.href ? (
-                      <a
-                        href={p.evidence.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        title={GITLAB_ACCESS_NOTE}
-                        className="transition-colors hover:text-ink"
-                      >
-                        {p.evidence.label}
-                      </a>
-                    ) : (
-                      <span>{p.evidence.label}</span>
-                    )}
+                    <span>{p.evidence.label}</span>
                   </div>
                 )}
 
