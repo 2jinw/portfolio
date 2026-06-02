@@ -86,6 +86,9 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col">
+        <a href="#main" className="skip-link">
+          본문 바로가기
+        </a>
         {/*
           스플래시 깜빡임(FOUC) 방지 게이트. beforeInteractive 전략은 초기 HTML의
           <head>에 주입되어 하이드레이션 전에 실행되므로, 첫 페인트 전에

@@ -84,7 +84,7 @@ export default async function Home() {
         </div>
       </nav>
 
-      <main className="relative">
+      <main id="main" tabIndex={-1} className="relative">
         {/* === FULL-SCREEN HERO === */}
         <MouseGlow>
         <section

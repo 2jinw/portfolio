@@ -352,6 +352,46 @@ html {
   scroll-behavior: smooth;
 }
 
+/* ============================================================
+   Accessibility — keyboard focus + skip link
+   ============================================================ */
+/* 마우스 클릭에는 안 뜨고 키보드 탐색 때만 뜨는 포커스 링 */
+:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+/* 포커스 링이 보이지 않도록 outline:none 처리된 요소가 키보드로 잡힐 때 보강 */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 3px;
+}
+
+/* 본문 바로가기 — 키보드 사용자가 nav를 건너뛰도록. 평소엔 화면 밖, 포커스 시 등장 */
+.skip-link {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -130%);
+  z-index: 100;
+  padding: 0.65rem 1.25rem;
+  background: var(--ink);
+  color: var(--page);
+  border-radius: 0 0 0.6rem 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.skip-link:focus {
+  transform: translate(-50%, 0);
+}
+main:focus {
+  outline: none;
+}
+
 /* Fraunces optical sizing — larger size = more dramatic */
 .font-display {
   font-variation-settings: "opsz" 96, "SOFT" 30, "WONK" 1;
