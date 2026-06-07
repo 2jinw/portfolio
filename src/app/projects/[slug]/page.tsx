@@ -179,14 +179,14 @@ export default async function ProjectDetail({
                     {mediaKindLabel[item.kind]}
                   </span>
                 </div>
-                <div className="bg-page/70 p-4">
+                <div className="bg-page p-4">
                   {item.kind === "video" ? (
                     <video
                       src={asset(item.src)}
                       controls
                       preload="metadata"
                       playsInline
-                      className="mx-auto max-h-[560px] w-full rounded-xl border border-line bg-black"
+                      className="aspect-video w-full rounded-xl border border-line bg-black object-contain"
                     />
                   ) : (
                     <Image
@@ -195,10 +195,10 @@ export default async function ProjectDetail({
                       width={1600}
                       height={item.kind === "architecture" ? 960 : 900}
                       unoptimized
-                      className={`w-full rounded-xl border border-line bg-page object-cover ${
+                      className={`w-full rounded-xl border border-line bg-page object-contain ${
                         item.kind === "architecture"
-                          ? "max-h-[560px]"
-                          : "max-h-[420px]"
+                          ? "max-h-[600px]"
+                          : "aspect-[16/10]"
                       }`}
                     />
                   )}
