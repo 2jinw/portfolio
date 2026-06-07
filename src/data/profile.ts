@@ -1,13 +1,13 @@
 export const profile = {
   name: { ko: "이진원", en: "Lee Jinwon" },
-  title: "Full-stack Engineer · Mobile · Backend · Embedded Sim",
+  title: "Full-stack Engineer · Mobile · Backend · Simulation",
   motto: {
     en: "Build end-to-end. Bridge the gaps. Ship as one.",
     ko: "끝에서 끝까지, 사이를 잇고, 하나로 보낸다.",
   },
   about: {
     summary:
-      "Flutter 앱부터 Spring/Django 백엔드, Isaac Lab 시뮬레이션과 라즈베리파이 디바이스 통합까지 — 한 프로젝트의 끝에서 끝까지 책임지는 풀스택 엔지니어를 지향합니다.",
+      "한 프로젝트를 앱부터 백엔드, 시뮬레이션, 디바이스까지 한 손으로 붙잡고 끝까지 책임지는 걸 좋아합니다. 계층과 계층 사이에서 자주 새는 부분 — 디바이스와 서버가 주고받는 신호, 화면과 데이터가 어긋나는 지점 — 을 찾아 메우는 일에 특히 재미를 느낍니다.",
     keywords: ["풀스택 통합", "디바이스-서버-앱 연동", "RL 시뮬레이션", "인프라 자동화"],
     role: "Full-stack Engineer 지향",
     interest: "End-to-end product delivery, Cross-layer integration, Reinforcement learning sims",

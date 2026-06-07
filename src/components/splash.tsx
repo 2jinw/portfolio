@@ -103,7 +103,7 @@ export function Splash() {
         className="splash-corner splash-corner--bl splash-fade"
         style={{ animationDelay: "350ms" }}
       >
-        Full-stack &middot; Mobile &middot; Embedded Sim
+        Full-stack &middot; Mobile &middot; Simulation
       </div>
 
       <div className="splash-counter">

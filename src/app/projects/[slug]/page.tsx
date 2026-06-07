@@ -31,6 +31,7 @@ const mediaKindLabel = {
   screenshot: "SCREEN",
   preview: "PREVIEW",
   architecture: "ARCH",
+  video: "VIDEO",
 } as const;
 
 export default async function ProjectDetail({
@@ -158,7 +159,9 @@ export default async function ProjectDetail({
               <figure
                 key={i}
                 className={`overflow-hidden rounded-2xl border border-line bg-panel ${
-                  item.kind === "architecture" ? "lg:col-span-2" : ""
+                  item.kind === "architecture" || item.kind === "video"
+                    ? "lg:col-span-2"
+                    : ""
                 }`}
               >
                 <div className="flex items-center justify-between border-b border-line px-5 py-3">
@@ -177,18 +180,28 @@ export default async function ProjectDetail({
                   </span>
                 </div>
                 <div className="bg-page/70 p-4">
-                  <Image
-                    src={asset(item.src)}
-                    alt={item.alt}
-                    width={1600}
-                    height={item.kind === "architecture" ? 960 : 900}
-                    unoptimized
-                    className={`w-full rounded-xl border border-line bg-page object-cover ${
-                      item.kind === "architecture"
-                        ? "max-h-[560px]"
-                        : "max-h-[420px]"
-                    }`}
-                  />
+                  {item.kind === "video" ? (
+                    <video
+                      src={asset(item.src)}
+                      controls
+                      preload="metadata"
+                      playsInline
+                      className="mx-auto max-h-[560px] w-full rounded-xl border border-line bg-black"
+                    />
+                  ) : (
+                    <Image
+                      src={asset(item.src)}
+                      alt={item.alt}
+                      width={1600}
+                      height={item.kind === "architecture" ? 960 : 900}
+                      unoptimized
+                      className={`w-full rounded-xl border border-line bg-page object-cover ${
+                        item.kind === "architecture"
+                          ? "max-h-[560px]"
+                          : "max-h-[420px]"
+                      }`}
+                    />
+                  )}
                 </div>
               </figure>
             ))}

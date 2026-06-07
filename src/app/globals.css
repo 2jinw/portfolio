@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ============================================================
-   THEME — warm light by default, dark via prefers-color-scheme
+   THEME — warm light (ivory / cream tones)
    ============================================================ */
 :root {
   color-scheme: light;
@@ -837,6 +837,11 @@ main:focus {
   /* Kill decorative blobs */
   .float-shape,
   .float-mark {
+    display: none !important;
+  }
+
+  /* 영상은 종이에 검은 박스로 찍히므로 인쇄 시 카드째 숨김 */
+  figure:has(video) {
     display: none !important;
   }
 

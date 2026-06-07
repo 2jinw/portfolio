@@ -18,7 +18,7 @@ export type TechDecision = {
 };
 
 export type ProjectMedia = {
-  kind: "gif" | "screenshot" | "preview" | "architecture";
+  kind: "gif" | "screenshot" | "preview" | "architecture" | "video";
   title: string;
   src: string;
   alt: string;
@@ -566,20 +566,44 @@ export const projects: ProjectMeta[] = [
     ],
     media: [
       {
+        kind: "video",
+        title: "완성 영상 (실제 생성 결과)",
+        src: "/project-media/itda/demo.mp4",
+        alt: "itda로 생성한 씬 영상 결과물",
+        caption:
+          "itda 안에서 AI로 만든 씬 영상 결과물. 텍스트·이미지에서 출발해 씬 단위로 생성·병합된 실제 출력물이다.",
+      },
+      {
         kind: "gif",
         title: "AI 시나리오 생성",
         src: "/project-media/itda/scenario.gif",
         alt: "itda의 AI 시나리오 생성 화면 GIF",
         caption:
-          "장르, 분위기, 씬 개수를 입력해 시나리오를 생성하는 실제 동작 GIF.",
+          "장르·분위기·씬 개수를 입력하면 AI가 씬별 스토리를 짜주는 실제 동작 GIF.",
       },
       {
         kind: "screenshot",
-        title: "씬 에디터",
-        src: "/project-media/itda/scene-editor.png",
-        alt: "itda의 씬 에디터 초기 화면 스크린샷",
+        title: "협업 대시보드",
+        src: "/project-media/itda/dashboard.png",
+        alt: "itda 대시보드. 우상단에 접속 중인 팀원 아바타, 우하단에 실시간 통화 바가 떠 있다",
         caption:
-          "MiniTimeline과 협업 UI가 들어가는 핵심 작업 공간. 노드 기반 편집의 중심 화면이다.",
+          "우상단 아바타(MK·SJ·YH…)는 같은 작업 공간에 들어와 있는 팀원 표시. 우하단 'Live' 바는 화면을 옮겨 다녀도 끊기지 않는 실시간 통화·협업 바다.",
+      },
+      {
+        kind: "screenshot",
+        title: "노드 씬 에디터 + 협업",
+        src: "/project-media/itda/scene-editor.png",
+        alt: "itda 노드 기반 씬 에디터와 마스터 이미지 생성 사이드바, 우하단 실시간 통화 바",
+        caption:
+          "노드 기반 씬 에디터와 마스터 이미지 생성 사이드바. 우하단 'Live' 바에서 마이크·카메라·화면 공유·채팅을 켠 채 같은 화면을 보며 작업한다.",
+      },
+      {
+        kind: "screenshot",
+        title: "타임라인 · 영상 병합",
+        src: "/project-media/itda/timeline.png",
+        alt: "itda 타임라인 화면. 비디오 미리보기와 클립 트랙, 영상 병합 버튼",
+        caption:
+          "확정한 클립을 타임라인에 배치하고 '영상 병합하기'로 최종 영상을 만든다. 협업 'Live' 바는 이 화면에서도 그대로 유지된다.",
       },
       {
         kind: "architecture",
