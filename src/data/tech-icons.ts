@@ -8,6 +8,8 @@ import {
   SiVuedotjs,
   SiReact,
   SiSpringboot,
+  SiFastapi,
+  SiSqlalchemy,
   SiDjango,
   SiNodedotjs,
   SiRedis,
@@ -51,6 +53,8 @@ export const techIcons: Record<string, IconType> = {
 
   // Backend
   "Spring Boot": SiSpringboot,
+  FastAPI: SiFastapi,
+  SQLAlchemy: SiSqlalchemy,
   Django: SiDjango,
   "Django REST Framework": SiDjango,
   "Node.js": SiNodedotjs,
@@ -101,6 +105,8 @@ export const techBrandColors: Record<string, string> = {
   "Vue.js": "#4FC08D",
   React: "#61DAFB",
   "Spring Boot": "#6DB33F",
+  FastAPI: "#009688",
+  SQLAlchemy: "#D71F00",
   Django: "#092E20",
   "Django REST Framework": "#A30000",
   "Node.js": "#5FA04E",

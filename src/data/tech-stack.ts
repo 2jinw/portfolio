@@ -19,7 +19,7 @@ export type SkillAxis = {
  */
 export const skillAxes: SkillAxis[] = [
   { label: "Mobile", value: 80, detail: "Flutter · IMO 앱 아키텍처/계층 통합" },
-  { label: "Backend", value: 75, detail: "Spring Boot · Django DRF · API 명세 정합" },
+  { label: "Backend", value: 75, detail: "FastAPI · Django DRF · Spring Boot · API 명세 정합" },
   { label: "Infra", value: 70, detail: "Docker · Jenkins · Caddy · Nginx · EC2" },
   { label: "Sim · AI", value: 85, detail: "Isaac Lab · RL navigation · 멀티 도킹" },
   { label: "Frontend", value: 60, detail: "Vue.js · WebRTC 시그널링 · UI 통합" },
@@ -40,7 +40,7 @@ export const techStack: TechCategory[] = [
   {
     name: "Backend",
     subtitle: "API·서비스 서버",
-    items: ["Spring Boot", "Django", "Django REST Framework", "Node.js"],
+    items: ["FastAPI", "Django REST Framework", "Spring Boot", "Node.js"],
   },
   {
     name: "Realtime · Data",

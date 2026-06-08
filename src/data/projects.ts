@@ -135,7 +135,7 @@ export const projects: ProjectMeta[] = [
     role: {
       team: "5인 팀 (앱·백·디바이스 분담)",
       myPart:
-        "Flutter 앱 초기 아키텍처, 백엔드 세션/통계 API, 라즈베리파이 ↔ 앱 실시간 핸드셰이크 프로토콜, Redis/Docker 환경 통합",
+        "Flutter 앱(홈·히스토리·세션결과·챗봇 UI), FastAPI 백엔드(세션/통계/인증 API, Gemini 운동 챗봇 — 멀티턴·IP rate limit), 라즈베리파이 ↔ 앱 실시간 핸드셰이크 프로토콜과 근활성도 스케일 0~100 통일, Redis/Docker 환경 통합",
     },
     problems: [
       {
@@ -182,7 +182,7 @@ export const projects: ProjectMeta[] = [
         problem:
           "Pi·서버·앱이 Redis를 공유 상태 버스로 썼다. 로컬은 디버깅을 위해 6379 포트를 호스트에 열어야 했고, 같은 compose를 EC2에 그대로 올리면 운영 Redis가 외부에 노출됐다.",
         approach:
-          "compose를 base + override 패턴으로 쪼갰다. docker-compose.local.yml은 6379를 호스트에 매핑, docker-compose.prod.yml은 내부 네트워크에만 묶이도록 설정. Gemini API key와 DB 자격증명은 .env로 빼내 이미지에서 분리했다.",
+          "compose를 로컬/운영으로 쪼갰다. docker-compose.yml은 디버깅 편의를 위해 6379를 호스트에 매핑하고, docker-compose.ec2.yml은 redis 포트를 호스트에 노출하지 않아 내부 네트워크에만 묶이도록 설정. Gemini API key와 DB 자격증명은 .env로 빼내 이미지에서 분리했다.",
         result:
           "같은 이미지를 환경 파일만 갈아 끼우면 로컬과 EC2에 다른 노출 규칙으로 뜬다. 운영 Redis 포트가 외부로 열린 채 배포되는 경로는 설정 단에서 막혔다.",
       },
@@ -201,8 +201,8 @@ export const projects: ProjectMeta[] = [
         why: "같은 이미지를 환경 파일만 바꿔 띄우려면 단일 compose로는 부족했다. base + override 패턴으로 로컬은 Redis를 노출하고 운영은 내부 네트워크에만 두는 식으로 분리하면, 배포 실수로 민감 포트가 열리는 사고를 구조적으로 막을 수 있다.",
       },
       {
-        tech: "Spring Boot + Django 이원화",
-        why: "세션·통계·인증처럼 트랜잭션이 분명한 영역은 Spring Boot에, Gemini 호출과 챗봇·LLM 응답처럼 파이썬 생태계 자산이 풍부한 영역은 Django에 두는 게 팀의 개발 속도와 검증 자원 모두에 유리했다.",
+        tech: "FastAPI (async) + SQLAlchemy 2.0 + PostgreSQL",
+        why: "운동 세션·통계·인증·Gemini 챗봇을 하나의 비동기 파이썬 백엔드로 묶었다. Pi·앱과의 실시간 연동과 LLM 호출처럼 I/O 대기가 많은 작업에 FastAPI의 async가 잘 맞았고, google-genai SDK 같은 파이썬 자산을 그대로 쓸 수 있었다. SQLAlchemy 2.0 async + asyncpg로 통계·세션 쿼리를 논블로킹으로 처리했다.",
       },
     ],
     outcomes: [
@@ -278,8 +278,9 @@ export const projects: ProjectMeta[] = [
     },
     techStack: [
       "Flutter",
-      "Spring Boot",
-      "Django",
+      "FastAPI",
+      "SQLAlchemy",
+      "PostgreSQL",
       "Redis",
       "Docker",
       "Raspberry Pi",
@@ -294,28 +295,28 @@ export const projects: ProjectMeta[] = [
     jsonFile: "03_특화PJT.json",
     displayName: "적재적소",
     impact:
-      "Isaac Lab 위에서 자율이동로봇(AMR) 다대수가 동시에 학습·도킹·서비스 사이클을 도는 시뮬레이션 환경. 단일 로봇 학습을 6/12/18대 스케일링까지 끌어올리는 게 과제였다.",
+      "물류센터의 AMR·컨베이어·로봇팔·안전 이벤트를 한 화면에서 실시간 관제하고, 일일 운영 보고서를 자동 생성하는 대시보드. 뒤에서는 Isaac Sim 다대수(6/12/18대) 시뮬레이션이 상태를 실시간으로 쏘고, 백엔드가 받아 WebSocket으로 대시보드에 브로드캐스트하는 실시간 관제 루프가 돈다.",
     period: "2026.02 – 2026.04 · 6주 · 특화PJT",
     background: {
       problem:
-        "물류·서비스 현장에서 AMR을 다대수로 운용하려면 충돌 회피·도킹·서비스 사이클을 함께 학습해야 한다. 그런데 실기로 6대 이상을 동시에 돌리는 건 공간·안전·전력 비용이 크고, 알고리즘 검증 단계에서는 더더욱 부담스럽다. 시뮬레이션에서 먼저 다대수 환경을 만들어, 실기 부담 없이 정책을 검증·확장하는 길이 필요했다.",
+        "물류센터를 운영하려면 AMR·컨베이어·로봇팔이 지금 어디서 무엇을 하는지, 안전 이벤트는 없는지를 한 화면에서 봐야 한다. 그런데 이 데이터를 만들 실기 라인을 6대 이상 규모로 깔려면 공간·안전·전력 비용이 크고, 알고리즘 검증 단계에서는 더 부담스럽다. 시뮬레이션에서 먼저 다대수 현장을 만들어 상태를 흘려보내고, 그 흐름을 실시간 관제 대시보드로 받아내는 한 줄짜리 파이프라인이 필요했다.",
       evidence: [
         "단일 AMR 학습은 정착돼 있어도, 다대수 동시 학습에서는 정책 자체보다 자산 참조·미션 큐·환경 충돌 같은 비(非)알고리즘 문제에 더 많은 시간이 들어가는 패턴이 반복된다.",
-        "도킹까지는 학습이 잘 되더라도 도킹 이후의 retreat / returning 사이클이 정의돼 있지 않으면 다음 작업으로 연결되지 않아, 시뮬레이션이 \"한 번 도킹하고 끝\"으로 멈춘다.",
+        "시뮬레이터가 주기적으로 쏘는 상태 패킷을 백엔드가 그대로 받아 저장·브로드캐스트하다 보면, 요청당 DB 쿼리와 부가 연산이 쌓여 부하 테스트에서 5xx가 터진다.",
       ],
       approach:
-        "Isaac Lab 위에서 학습 환경(rl_navigation 패키지) · 플레이 런타임(play_navigation_multi) · 배포 인프라(Jenkins/Caddy/EC2)를 한 라인 위에 정리해, 6/12/18대 스케일링 실험과 도킹 이후 서비스 사이클까지 같은 코드베이스에서 굴러가도록 만들기로 했다.",
+        "Isaac Sim 다대수 시뮬레이션(6/12/18대 스케일링)에서 만든 AMR·컨베이어·로봇팔 상태를 주기적으로 HTTP(batch-update)로 백엔드에 보내고, 백엔드가 DB 저장 후 WebSocket으로 대시보드에 브로드캐스트하는 실시간 관제 루프를 한 라인 위에 세우기로 했다. 학습 환경·텔레메트리 전송·백엔드 부하완화·배포(Jenkins/Caddy/EC2)를 같은 코드베이스에서 굴려, 실험 결과가 곧장 관제 화면으로 이어지게 했다.",
     },
     stats: [
+      {
+        value: "62 → 0건",
+        label: "batch-update 부하 5xx",
+        detail: "bulk_update + 주기 throttle, 1000req·동시10, P99 259ms",
+      },
       {
         value: "6 → 18대",
         label: "스케일링 폭",
         detail: "같은 코드베이스에서 config만 갈아 끼우는 분기",
-      },
-      {
-        value: "3단계",
-        label: "도킹 이후 큐 사이클",
-        detail: "retreat → returning → done",
       },
       {
         value: "self-host CI",
@@ -324,11 +325,23 @@ export const projects: ProjectMeta[] = [
       },
     ],
     role: {
-      team: "5인 팀 (시뮬·학습·인프라 분담)",
+      team: "5인 팀 (시뮬·학습·백엔드·인프라 분담)",
       myPart:
-        "AMR navigation 학습 환경(asset/config/scene/planner) 구성, 멀티 도킹 서비스 런타임, 스케일링 실험 환경, EC2/Caddy/Jenkins 배포 인프라",
+        "Isaac Sim 학습 환경(asset/config/scene)·6/12/18대 스케일링·하이브리드 암 제어, 시뮬레이터→백엔드 텔레메트리 전송(2Hz), 백엔드 batch-update 부하완화와 운영분석 KPI 집계, Jenkins/Caddy/EC2 배포 인프라와 SQLite→Postgres 마이그레이션",
     },
     problems: [
+      {
+        title: "실시간 텔레메트리 부하 테스트에서 5xx가 터졌다",
+        problem:
+          "시뮬레이터가 주기적으로 쏘는 batch-update를 백엔드가 받아 DB 저장·브로드캐스트하는데, ab -n 1000 -c 10 부하 테스트에서 500 응답이 62건 나왔다. 요청마다 AMR·컨베이어·로봇팔을 자산별 개별 쿼리로 갱신하고, 추천 평가·stale 스냅샷 정리가 매 요청 hot path에서 동기 실행된 게 원인이었다.",
+        approach:
+          "자산 갱신을 bulk_update / bulk_create로 묶어 요청당 DB round-trip을 줄이고, 추천 재평가(5초)·stale 정리(30초)를 주기 throttle로 hot path 밖으로 빼냈다. 부하완화가 회귀를 만들지 않도록 batch/throttle 회귀 테스트도 함께 붙였다.",
+        result:
+          "같은 ab -n 1000 -c 10 재측정에서 실패 62건 → 0건(1000/1000 200), P99 259ms를 확인했다. 부하 경로를 코드 단에서 먼저 가볍게 만들어 같은 부하에서의 실패 가능성을 낮춘 작업이다.",
+        evidence: {
+          label: "commit c7d7f64 · reduce batch-update load path (docs/BATCH_UPDATE 부하완화 정리)",
+        },
+      },
       {
         title: "멀티 AMR 도킹 후 서비스 흐름이 끊겼다",
         problem:
@@ -389,6 +402,11 @@ export const projects: ProjectMeta[] = [
     ],
     outcomes: [
       {
+        value: "62 → 0건",
+        label: "batch-update 부하 5xx",
+        detail: "bulk_update + 주기 throttle, 1000req·동시10, P99 259ms",
+      },
+      {
         value: "6 → 18대",
         label: "스케일링 분기",
         detail: "config만 갈아 끼우는 같은 코드베이스",
@@ -402,11 +420,6 @@ export const projects: ProjectMeta[] = [
         value: "push → deploy",
         label: "학습 환경 재현",
         detail: "Jenkins/EC2 self-host + Caddy HTTPS 자동화",
-      },
-      {
-        value: "1 패키지",
-        label: "rl_navigation",
-        detail: "단일·멀티 학습 코드가 한 트리에 공존",
       },
     ],
     media: [
@@ -454,6 +467,8 @@ export const projects: ProjectMeta[] = [
       "Isaac Lab",
       "RL",
       "Python",
+      "Django REST Framework",
+      "PostgreSQL",
       "ROS",
       "Docker",
       "Jenkins",
