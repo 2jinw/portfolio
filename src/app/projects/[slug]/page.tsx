@@ -158,19 +158,19 @@ export default async function ProjectDetail({
             {meta.media.map((item, i) => (
               <figure
                 key={i}
-                className={`overflow-hidden rounded-2xl border border-line bg-panel ${
+                className={`flex flex-col overflow-hidden rounded-2xl border border-line bg-panel ${
                   item.kind === "architecture" || item.kind === "video"
                     ? "lg:col-span-2"
                     : ""
                 }`}
               >
-                <div className="flex items-center justify-between border-b border-line px-5 py-3">
+                <div className="flex items-start justify-between gap-3 border-b border-line px-5 py-4 lg:min-h-[7.5rem]">
                   <div>
                     <p className="font-display text-lg font-semibold">{item.title}</p>
-                    <p className="text-sm text-muted">{item.caption}</p>
+                    <p className="mt-1 text-sm leading-relaxed text-muted">{item.caption}</p>
                   </div>
                   <span
-                    className="rounded-full px-3 py-1 font-mono text-[11px] uppercase tracking-wider"
+                    className="mt-0.5 shrink-0 rounded-full px-3 py-1 font-mono text-[11px] uppercase tracking-wider"
                     style={{
                       color: meta.accentColor,
                       background: `color-mix(in srgb, ${meta.accentColor} 14%, transparent)`,
@@ -179,7 +179,7 @@ export default async function ProjectDetail({
                     {mediaKindLabel[item.kind]}
                   </span>
                 </div>
-                <div className="bg-page p-4">
+                <div className="flex flex-1 items-center bg-page p-4">
                   {item.kind === "video" ? (
                     <video
                       src={asset(item.src)}
