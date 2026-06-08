@@ -164,7 +164,7 @@ export default async function ProjectDetail({
                     : ""
                 }`}
               >
-                <div className="flex items-start justify-between gap-3 border-b border-line px-5 py-4 lg:min-h-[7.5rem]">
+                <div className="flex items-start justify-between gap-3 border-b border-line px-5 py-4 lg:min-h-[8.5rem]">
                   <div>
                     <p className="font-display text-lg font-semibold">{item.title}</p>
                     <p className="mt-1 text-sm leading-relaxed text-muted">{item.caption}</p>
