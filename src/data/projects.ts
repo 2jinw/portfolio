@@ -579,7 +579,7 @@ export const projects: ProjectMeta[] = [
         src: "/project-media/itda/scenario.gif",
         alt: "itda의 AI 시나리오 생성 화면 GIF",
         caption:
-          "장르·분위기·씬 개수를 입력하면 AI가 씬별 스토리를 짜주는 실제 동작 GIF.",
+          "장르·분위기·씬 개수만 넣으면 AI가 씬별 스토리를 자동으로 짜준다. 영화의 뼈대를 몇 초 만에 잡는 시작 단계.",
       },
       {
         kind: "screenshot",
@@ -587,7 +587,7 @@ export const projects: ProjectMeta[] = [
         src: "/project-media/itda/dashboard.png",
         alt: "itda 대시보드. 우상단에 접속 중인 팀원 아바타, 우하단에 실시간 통화 바가 떠 있다",
         caption:
-          "우상단 아바타(MK·SJ·YH…)는 같은 작업 공간에 들어와 있는 팀원 표시. 우하단 'Live' 바는 화면을 옮겨 다녀도 끊기지 않는 실시간 통화·협업 바다.",
+          "상단 아바타(MK·SJ·YH…)는 지금 같은 작업 공간에 접속해 있는 팀원. 우상단 '실시간 협업 시작'을 누르면 화면·음성을 켠 협업 세션이 바로 열린다.",
       },
       {
         kind: "screenshot",
