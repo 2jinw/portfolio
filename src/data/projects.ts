@@ -22,7 +22,7 @@ export type ProjectMedia = {
   title: string;
   src: string;
   alt: string;
-  caption: string;
+  caption?: string;
 };
 
 export type ProjectLink = {
@@ -610,8 +610,6 @@ export const projects: ProjectMeta[] = [
         title: "시스템 아키텍처",
         src: "/project-media/itda/architecture.png",
         alt: "itda의 프론트엔드, 백엔드, Redis, S3, Google Cloud를 연결한 시스템 아키텍처",
-        caption:
-          "프로젝트 README에 포함돼 있던 실제 아키텍처 이미지. 협업, AI 작업, 배포 흐름이 한 장에 담겨 있다.",
       },
     ],
     featuredMRs: [

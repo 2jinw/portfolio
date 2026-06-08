@@ -167,7 +167,9 @@ export default async function ProjectDetail({
                 <div className="flex items-start justify-between gap-3 border-b border-line px-5 py-4 lg:min-h-[8.5rem]">
                   <div>
                     <p className="font-display text-lg font-semibold">{item.title}</p>
-                    <p className="mt-1 text-sm leading-relaxed text-muted">{item.caption}</p>
+                    {item.caption ? (
+                      <p className="mt-1 text-sm leading-relaxed text-muted">{item.caption}</p>
+                    ) : null}
                   </div>
                   <span
                     className="mt-0.5 shrink-0 rounded-full px-3 py-1 font-mono text-[11px] uppercase tracking-wider"
