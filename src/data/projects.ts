@@ -292,7 +292,7 @@ export const projects: ProjectMeta[] = [
   {
     slug: "amr-sim",
     jsonFile: "03_특화PJT.json",
-    displayName: "AMR 시뮬레이션 플랫폼",
+    displayName: "적재적소",
     impact:
       "Isaac Lab 위에서 자율이동로봇(AMR) 다대수가 동시에 학습·도킹·서비스 사이클을 도는 시뮬레이션 환경. 단일 로봇 학습을 6/12/18대 스케일링까지 끌어올리는 게 과제였다.",
     period: "2026.02 – 2026.04 · 6주 · 특화PJT",
@@ -466,7 +466,7 @@ export const projects: ProjectMeta[] = [
   {
     slug: "itda",
     jsonFile: "02_공통PJT.json",
-    displayName: "itda",
+    displayName: "잇다",
     impact:
       "WebRTC로 다인 협업을 묶고 통합 대시보드 UI에서 룸·타임라인·세션을 한 번에 관리하는 AI 영상 제작 협업 플랫폼.",
     period: "2026.01 – 2026.02 · 6주 · 공통PJT",
@@ -569,15 +569,15 @@ export const projects: ProjectMeta[] = [
         kind: "video",
         title: "완성 영상 (실제 생성 결과)",
         src: "/project-media/itda/demo.mp4",
-        alt: "itda로 생성한 씬 영상 결과물",
+        alt: "잇다로 생성한 씬 영상 결과물",
         caption:
-          "itda 안에서 AI로 만든 씬 영상 결과물. 텍스트·이미지에서 출발해 씬 단위로 생성·병합된 실제 출력물이다.",
+          "잇다 안에서 AI로 만든 씬 영상 결과물. 텍스트·이미지에서 출발해 씬 단위로 생성·병합된 실제 출력물이다.",
       },
       {
         kind: "gif",
         title: "AI 시나리오 생성",
         src: "/project-media/itda/scenario.gif",
-        alt: "itda의 AI 시나리오 생성 화면 GIF",
+        alt: "잇다의 AI 시나리오 생성 화면 GIF",
         caption:
           "장르·분위기·씬 개수만 넣으면 AI가 씬별 스토리를 자동으로 짜준다. 영화의 뼈대를 몇 초 만에 잡는 시작 단계.",
       },
@@ -585,7 +585,7 @@ export const projects: ProjectMeta[] = [
         kind: "screenshot",
         title: "협업 대시보드",
         src: "/project-media/itda/dashboard.png",
-        alt: "itda 대시보드. 우상단에 접속 중인 팀원 아바타, 우하단에 실시간 통화 바가 떠 있다",
+        alt: "잇다 대시보드. 상단에 접속 중인 팀원 아바타, 우상단에 실시간 협업 시작 버튼이 있다",
         caption:
           "상단 아바타(MK·SJ·YH…)는 지금 같은 작업 공간에 접속해 있는 팀원. 우상단 '실시간 협업 시작'을 누르면 화면·음성을 켠 협업 세션이 바로 열린다.",
       },
@@ -593,7 +593,7 @@ export const projects: ProjectMeta[] = [
         kind: "screenshot",
         title: "노드 씬 에디터 + 협업",
         src: "/project-media/itda/scene-editor.png",
-        alt: "itda 노드 기반 씬 에디터와 마스터 이미지 생성 사이드바, 우하단 실시간 통화 바",
+        alt: "잇다 노드 기반 씬 에디터와 마스터 이미지 생성 사이드바, 우하단 실시간 통화 바",
         caption:
           "노드 기반 씬 에디터와 마스터 이미지 생성 사이드바. 우하단 'Live' 바에서 마이크·카메라·화면 공유·채팅을 켠 채 같은 화면을 보며 작업한다.",
       },
@@ -601,7 +601,7 @@ export const projects: ProjectMeta[] = [
         kind: "screenshot",
         title: "타임라인 · 영상 병합",
         src: "/project-media/itda/timeline.png",
-        alt: "itda 타임라인 화면. 비디오 미리보기와 클립 트랙, 영상 병합 버튼",
+        alt: "잇다 타임라인 화면. 비디오 미리보기와 클립 트랙, 영상 병합 버튼",
         caption:
           "확정한 클립을 타임라인에 배치하고 '영상 병합하기'로 최종 영상을 만든다. 협업 'Live' 바는 이 화면에서도 그대로 유지된다.",
       },
@@ -609,7 +609,7 @@ export const projects: ProjectMeta[] = [
         kind: "architecture",
         title: "시스템 아키텍처",
         src: "/project-media/itda/architecture.png",
-        alt: "itda의 프론트엔드, 백엔드, Redis, S3, Google Cloud를 연결한 시스템 아키텍처",
+        alt: "잇다의 프론트엔드, 백엔드, Redis, S3, Google Cloud를 연결한 시스템 아키텍처",
       },
     ],
     featuredMRs: [

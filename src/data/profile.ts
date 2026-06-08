@@ -29,7 +29,7 @@ export const awards: Award[] = [
   {
     year: "2026",
     scope: "SSAFY 14기 공통PJT",
-    project: "itda — AI 영상 제작 협업 플랫폼",
+    project: "잇다 — AI 영상 제작 협업 플랫폼",
     result: "우수상 (1등)",
   },
 ];
@@ -48,8 +48,8 @@ export const experience: ExperienceItem[] = [
     role: "교육생 · 4개 프로젝트 완수",
     activities: [
       "관통PJT — 영화 커뮤니티 (마이페이지·한줄평·추천)",
-      "공통PJT itda — 화상 협업 학습 플랫폼 (WebRTC·UI 통합)",
-      "특화PJT AMR Sim — 다중 AMR 자율주행 시뮬레이션 (Isaac Lab/RL·인프라)",
+      "공통PJT 잇다 — 화상 협업 학습 플랫폼 (WebRTC·UI 통합)",
+      "특화PJT 적재적소 — 다중 AMR 자율주행 시뮬레이션 (Isaac Lab/RL·인프라)",
       "자율PJT IMO — 스마트 글래스 운동 코치 (Flutter·백엔드·라즈베리파이 통합)",
     ],
   },
