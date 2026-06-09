@@ -464,12 +464,68 @@ export const projects: ProjectMeta[] = [
     ],
     media: [
       {
-        kind: "screenshot",
-        title: "시뮬레이터 맵 캡처",
-        src: "/project-media/amr/layer-add-guide.png",
-        alt: "Isaac Sim 맵 레이어 구성 화면 캡처",
+        kind: "video",
+        title: "통합 시뮬레이션 데모",
+        src: "/project-media/amr/sim-demo.webm",
+        alt: "Isaac Sim에서 AMR·컨베이어·로봇팔이 함께 동작하는 적재적소 통합 시뮬레이션 영상",
         caption:
-          "실험 맵에 오버레이 자산을 얹어 시나리오를 구성할 때 사용한 실제 시뮬레이터 화면.",
+          "Isaac Sim 위에서 AMR·컨베이어·로봇팔이 한 흐름으로 도는 통합 시뮬레이션. 이 상태가 백엔드로 흘러가 관제 대시보드에 실시간 반영된다.",
+      },
+      {
+        kind: "screenshot",
+        title: "다대수 스케일링 실험",
+        src: "/project-media/amr/scaling.png",
+        alt: "Isaac Sim 그리드 위에 AMR 30여 대를 배치한 다대수 스케일링 실험 화면",
+        caption:
+          "AMR을 한 씬에 다수 배치한 스케일링 실험. 6/12/18대 환경을 config만 갈아 끼워 같은 코드베이스에서 굴리도록 rl_navigation 패키지로 정리했다.",
+      },
+      {
+        kind: "screenshot",
+        title: "물류센터 디지털 트윈",
+        src: "/project-media/amr/warehouse.png",
+        alt: "수백 개의 랙과 파스로 채운 물류센터를 Isaac Sim으로 재현한 전경",
+        caption:
+          "수백 개 랙·파스를 채운 물류센터 디지털 트윈. 실기 라인을 깔지 않고 시뮬레이션에서 다대수 현장을 먼저 만들어 상태를 흘려보냈다.",
+      },
+      {
+        kind: "screenshot",
+        title: "로봇팔 적재 (도킹 사이클)",
+        src: "/project-media/amr/arm-docking.png",
+        alt: "컨베이어에서 케이지로 물건을 적재하는 로봇팔을 위에서 내려다본 화면",
+        caption:
+          "컨베이어에서 케이지로 적재하는 로봇팔(탑다운). 도킹 이후 retreat → returning → done 서비스 사이클을 큐 기반으로 정의한 장면.",
+      },
+      {
+        kind: "screenshot",
+        title: "멀티 AMR 주행",
+        src: "/project-media/amr/multi-amr-nav.png",
+        alt: "창고 전경에서 여러 AMR이 초록색 내비게이션 경로를 따라 동시에 주행하는 화면",
+        caption:
+          "여러 AMR이 초록 경로선을 따라 동시에 주행하는 멀티 내비게이션. 단일 학습을 다대수로 확장하며 경로·자산 참조를 패키지 경계로 분리했다.",
+      },
+      {
+        kind: "screenshot",
+        title: "물류 플로어 (Fleet)",
+        src: "/project-media/amr/fleet.png",
+        alt: "AMR·컨베이어·케이지가 정렬 배치된 깔끔한 물류 플로어 전경",
+        caption:
+          "AMR·컨베이어·케이지가 배치된 물류 플로어. 다대수 운영 전체를 한 화면에서 관제 대상으로 삼는 게 목표였다.",
+      },
+      {
+        kind: "screenshot",
+        title: "장애물 회피 환경",
+        src: "/project-media/amr/obstacle-env.png",
+        alt: "지게차·작업자·박스 장애물을 배치한 사실적 물류 환경 시뮬레이션 화면",
+        caption:
+          "지게차·작업자·장애물을 섞은 사실적 물류 환경. 경로를 막는 장애물 앞에서 멈추는 회피 시나리오를 검증한 무대.",
+      },
+      {
+        kind: "screenshot",
+        title: "통합 환경 조감",
+        src: "/project-media/amr/floor-overview.png",
+        alt: "컨베이어·랙·AMR이 모두 들어간 물류 플로어 전체를 위에서 본 조감 화면",
+        caption:
+          "컨베이어·랙·AMR이 모두 들어간 통합 환경 조감. 학습·런타임·관제가 같은 현장 위에서 이어지도록 구성했다.",
       },
       {
         kind: "architecture",
