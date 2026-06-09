@@ -103,7 +103,7 @@ export const projects: ProjectMeta[] = [
     jsonFile: "04_자율PJT.json",
     displayName: "IMO",
     impact:
-      "스마트 글래스로 운동 자세를 보고, 라즈베리파이에서 추정한 데이터를 앱이 받아 통계·코치로 돌려주는 풀스택 운동 코치. 디바이스–서버–앱 3개 계층을 사용자 의도에 맞게 묶는 게 과제였다.",
+      "스마트 글래스로 운동 자세를 보고, 라즈베리파이에서 추정한 데이터를 앱이 받아 통계·코치로 돌려주는 **풀스택 운동 코치**. **디바이스–서버–앱 3개 계층을 사용자 의도에 맞게 묶는 것**이 과제였다.",
     period: "2026.04 – 2026.05 · 6주 · 자율PJT",
     background: {
       problem:
@@ -143,9 +143,9 @@ export const projects: ProjectMeta[] = [
         problem:
           "캘리브레이션이 끝나면 Pi가 곧바로 monitoring으로 진입했다. 사용자가 글래스를 쓰기도 전에 세션이 잡혀 누적 통계가 오염됐다.",
         approach:
-          "monitoring 진입 권한을 Pi에서 앱으로 옮겼다. PiMessageType.startWorkout을 새로 만들어 앱의 \"운동 시작\" 버튼만 트리거로 인정하도록 못 박고, WorkoutRepository까지 호출 경로를 다시 깔았다.",
+          "**monitoring 진입 권한을 Pi에서 앱으로 옮겼다.** PiMessageType.startWorkout을 새로 만들어 앱의 \"운동 시작\" 버튼만 트리거로 인정하도록 못 박고, WorkoutRepository까지 호출 경로를 다시 깔았다.",
         result:
-          "글래스 미착용 시 세션 자동 진입 0건. 운동 시작이 사용자 의도와 일치하면서 통계 데이터의 출처가 분명해졌다.",
+          "글래스 미착용 시 **세션 자동 진입 0건**. 운동 시작이 사용자 의도와 일치하면서 통계 데이터의 출처가 분명해졌다.",
         evidence: {
           label: "MR !83 · 앱-Pi 양방향 운동 시작 핸드셰이크",
           href: "https://lab.ssafy.com/s14-final/S14P31C203/-/merge_requests/83",
@@ -158,7 +158,7 @@ export const projects: ProjectMeta[] = [
         approach:
           "집계 키를 \"세션 순서\"에서 \"일자 기준 7일 슬롯\"으로 교체했다. 앱은 같은 날 다중 세션을 한 막대로 합쳐 그리도록 다시 그렸다.",
         result:
-          "월요일 3회는 월요일 막대 하나에 누적된다. 주간 그래프가 비로소 요일을 가리킨다.",
+          "월요일 3회는 **월요일 막대 하나에 누적**된다. 주간 그래프가 비로소 요일을 가리킨다.",
         evidence: {
           label: "MR !101 · 주간 추세 일자별 7일 슬롯 매핑",
           href: "https://lab.ssafy.com/s14-final/S14P31C203/-/merge_requests/101",
@@ -171,7 +171,7 @@ export const projects: ProjectMeta[] = [
         approach:
           "쿼리 파라미터를 date/month/exerciseType + page/size로 통일하고, 응답에 sessions·exerciseDates·pagination을 한 묶음으로 담아 API-07 명세로 못 박았다.",
         result:
-          "달력이 한 달치를 1회 호출로 받는다. 리스트가 같은 엔드포인트를 그대로 재사용하면서 화면별 분기 코드가 사라졌다.",
+          "달력이 **한 달치를 1회 호출로** 받는다. 리스트가 같은 엔드포인트를 그대로 재사용하면서 화면별 분기 코드가 사라졌다.",
         evidence: {
           label: "MR !25 · GET /sessions 명세 정합",
           href: "https://lab.ssafy.com/s14-final/S14P31C203/-/merge_requests/25",
@@ -184,7 +184,7 @@ export const projects: ProjectMeta[] = [
         approach:
           "compose를 로컬/운영으로 쪼갰다. docker-compose.yml은 디버깅 편의를 위해 6379를 호스트에 매핑하고, docker-compose.ec2.yml은 redis 포트를 호스트에 노출하지 않아 내부 네트워크에만 묶이도록 설정. Gemini API key와 DB 자격증명은 .env로 빼내 이미지에서 분리했다.",
         result:
-          "같은 이미지를 환경 파일만 갈아 끼우면 로컬과 EC2에 다른 노출 규칙으로 뜬다. 운영 Redis 포트가 외부로 열린 채 배포되는 경로는 설정 단에서 막혔다.",
+          "같은 이미지를 환경 파일만 갈아 끼우면 로컬과 EC2에 다른 노출 규칙으로 뜬다. **운영 Redis 포트가 외부로 열린 채 배포되는 경로는 설정 단에서 막혔다.**",
       },
     ],
     techDecisions: [
@@ -295,7 +295,7 @@ export const projects: ProjectMeta[] = [
     jsonFile: "03_특화PJT.json",
     displayName: "적재적소",
     impact:
-      "물류센터의 AMR·컨베이어·로봇팔·안전 이벤트를 한 화면에서 실시간 관제하고, 일일 운영 보고서를 자동 생성하는 대시보드. 뒤에서는 Isaac Sim 다대수(6/12/18대) 시뮬레이션이 상태를 실시간으로 쏘고, 백엔드가 받아 WebSocket으로 대시보드에 브로드캐스트하는 실시간 관제 루프가 돈다.",
+      "물류센터의 AMR·컨베이어·로봇팔·안전 이벤트를 **한 화면에서 실시간 관제**하고, 일일 운영 보고서를 자동 생성하는 대시보드. 뒤에서는 Isaac Sim 다대수(6/12/18대) 시뮬레이션이 상태를 실시간으로 쏘고, 백엔드가 받아 **WebSocket으로 대시보드에 브로드캐스트하는 실시간 관제 루프**가 돈다.",
     period: "2026.02 – 2026.04 · 6주 · 특화PJT",
     background: {
       problem:
@@ -335,9 +335,9 @@ export const projects: ProjectMeta[] = [
         problem:
           "시뮬레이터가 주기적으로 쏘는 batch-update를 백엔드가 받아 DB 저장·브로드캐스트하는데, ab -n 1000 -c 10 부하 테스트에서 500 응답이 62건 나왔다. 요청마다 AMR·컨베이어·로봇팔을 자산별 개별 쿼리로 갱신하고, 추천 평가·stale 스냅샷 정리가 매 요청 hot path에서 동기 실행된 게 원인이었다.",
         approach:
-          "자산 갱신을 bulk_update / bulk_create로 묶어 요청당 DB round-trip을 줄이고, 추천 재평가(5초)·stale 정리(30초)를 주기 throttle로 hot path 밖으로 빼냈다. 부하완화가 회귀를 만들지 않도록 batch/throttle 회귀 테스트도 함께 붙였다.",
+          "**자산 갱신을 bulk_update / bulk_create로 묶어** 요청당 DB round-trip을 줄이고, 추천 재평가(5초)·stale 정리(30초)를 **주기 throttle로 hot path 밖으로** 빼냈다. 부하완화가 회귀를 만들지 않도록 batch/throttle 회귀 테스트도 함께 붙였다.",
         result:
-          "같은 ab -n 1000 -c 10 재측정에서 실패 62건 → 0건(1000/1000 200), P99 259ms를 확인했다. 부하 경로를 코드 단에서 먼저 가볍게 만들어 같은 부하에서의 실패 가능성을 낮춘 작업이다.",
+          "같은 ab -n 1000 -c 10 재측정에서 **실패 62건 → 0건**(1000/1000 200), **P99 259ms**를 확인했다. 부하 경로를 코드 단에서 먼저 가볍게 만들어 같은 부하에서의 실패 가능성을 낮춘 작업이다.",
         evidence: {
           label: "commit c7d7f64 · reduce batch-update load path (docs/BATCH_UPDATE 부하완화 정리)",
         },
@@ -349,7 +349,7 @@ export const projects: ProjectMeta[] = [
         approach:
           "play_navigation_multi.py를 새로 두고 도킹 이후 retreat → returning → done을 큐 기반 사이클로 못 박았다. service-v1 학습 환경을 함께 추가해 런타임과 학습 기준을 같은 줄에 맞췄다.",
         result:
-          "도킹 이후 3단계 사이클이 큐 위에서 자동으로 굴러간다. 멀티 도킹 시나리오가 한 번 시작되면 같은 패턴으로 반복된다.",
+          "도킹 이후 **3단계 사이클이 큐 위에서 자동으로** 굴러간다. 멀티 도킹 시나리오가 한 번 시작되면 같은 패턴으로 반복된다.",
         evidence: {
           label: "MR !110 · 멀티 도킹 서비스 런타임 및 service-v1 학습 환경",
           href: "https://lab.ssafy.com/s14-mobility-smarthome-sub1/S14P21C206/-/merge_requests/110",
@@ -362,7 +362,7 @@ export const projects: ProjectMeta[] = [
         approach:
           "isaaclab 경로를 rl_navigation 패키지로 재구성했다. 단일·멀티 학습 환경을 같은 패키지에서 공유하도록 묶고, N대 환경 추가가 config 한 줄 변경으로 끝나도록 정책 코드와 실험 코드를 분리했다.",
         result:
-          "6/12/18대 실험이 같은 코드베이스에서 config만 갈아 끼우는 분기로 굴러간다. 환경 재구성에 들어가던 시간이 학습 튜닝 쪽으로 옮겨갔다.",
+          "6/12/18대 실험이 **같은 코드베이스에서 config만 갈아 끼우는 분기**로 굴러간다. 환경 재구성에 들어가던 시간이 학습 튜닝 쪽으로 옮겨갔다.",
         evidence: {
           label: "MR !156 · AMR 최적대수 스케일링 실험 환경",
           href: "https://lab.ssafy.com/s14-mobility-smarthome-sub1/S14P21C206/-/merge_requests/156",
@@ -375,7 +375,7 @@ export const projects: ProjectMeta[] = [
         approach:
           "Jenkins를 EC2에 셀프호스팅. build → deploy → verify를 같은 서버 맥락에서 돌리고, Caddy로 HTTPS 자동화를 붙여 실험 dashboard 주소를 빠르게 깔았다. 학습·런타임·대시보드는 Docker 컨테이너 단위로 격리했다.",
         result:
-          "코드 push가 곧장 배포·재현으로 이어진다. 팀원이 각자 로컬 셋업을 다시 빌드하던 비용이 \"머지 후 자동\"으로 옮겨갔다.",
+          "**코드 push가 곧장 배포·재현으로** 이어진다. 팀원이 각자 로컬 셋업을 다시 빌드하던 비용이 \"머지 후 자동\"으로 옮겨갔다.",
         evidence: {
           label: "MR !21 · Docker and EC2 deployment setup",
           href: "https://lab.ssafy.com/s14-mobility-smarthome-sub1/S14P21C206/-/merge_requests/21",
@@ -483,7 +483,7 @@ export const projects: ProjectMeta[] = [
     jsonFile: "02_공통PJT.json",
     displayName: "잇다",
     impact:
-      "WebRTC로 다인 협업을 묶고 통합 대시보드 UI에서 룸·타임라인·세션을 한 번에 관리하는 AI 영상 제작 협업 플랫폼.",
+      "WebRTC로 다인 협업을 묶고 통합 대시보드 UI에서 **룸·타임라인·세션을 한 번에 관리**하는 AI 영상 제작 협업 플랫폼.",
     period: "2026.01 – 2026.02 · 6주 · 공통PJT",
     background: {
       problem:
@@ -522,9 +522,9 @@ export const projects: ProjectMeta[] = [
         problem:
           "프로젝트 상세·씬 편집·타임라인 레이아웃이 각자 소켓·프레즌스·RTC 연결을 품었다. 페이지 이동 때 구독 해제와 재연결 순서가 어긋나 협업 바가 흔들렸고, WebRTC peer가 라우트 전환마다 재생성되면서 미디어 스트림이 끊겼다.",
         approach:
-          "collabStore에 chat / presence / rtc 채널을 projectId 기준으로 모았다. socketManager와 peerConnectionService의 join → subscribe → media 순서를 명시적으로 못 박고, 레이아웃은 공통 사이드바와 협업 패널 슬롯을 공유해 페이지가 바뀌어도 구독이 끊기지 않도록 묶었다.",
+          "**collabStore에 chat / presence / rtc 채널을 projectId 기준으로 모았다.** socketManager와 peerConnectionService의 join → subscribe → media 순서를 명시적으로 못 박고, 레이아웃은 공통 사이드바와 협업 패널 슬롯을 공유해 페이지가 바뀌어도 구독이 끊기지 않도록 묶었다.",
         result:
-          "대시보드·상세·에디터가 같은 협업 store 하나를 본다. peer 재연결로 인한 미디어 끊김 회귀가 사라졌고, 6명 Mesh 전제가 코드·문서·UI에서 같은 기준으로 정렬됐다.",
+          "대시보드·상세·에디터가 **같은 협업 store 하나**를 본다. **peer 재연결로 인한 미디어 끊김 회귀가 사라졌고**, 6명 Mesh 전제가 코드·문서·UI에서 같은 기준으로 정렬됐다.",
         evidence: {
           label: "협업 채널 3종(chat/presence/rtc) + 6명 Mesh 설계",
         },
@@ -536,7 +536,7 @@ export const projects: ProjectMeta[] = [
         approach:
           "공통 레이아웃과 라우터 경계를 다시 그렸다. projectId/sceneId 파라미터를 기준으로 페이지 책임을 나누고, 충돌이 잦은 공통 셸은 merge 단위를 잘게 쪼개 회귀 범위를 좁혔다. 데모 안정화 MR(!69)로 흐름을 한 번 되감은 뒤 다시 통합했다.",
         result:
-          "프로젝트 상세 → 씬 편집 진입 흐름이 다시 일정해졌다. 협업 UI와 MiniTimeline이 같은 화면 계층에 올라갔고, 데모 직전 회귀의 원인 범위가 좁아졌다.",
+          "프로젝트 상세 → 씬 편집 진입 흐름이 다시 일정해졌다. 협업 UI와 MiniTimeline이 **같은 화면 계층**에 올라갔고, 데모 직전 회귀의 원인 범위가 좁아졌다.",
         evidence: {
           label: "MR !70 · 라우팅 수정",
           href: "https://lab.ssafy.com/s14-webmobile1-sub1/S14P11C205/-/merge_requests/70",
@@ -654,7 +654,7 @@ export const projects: ProjectMeta[] = [
     jsonFile: "01_관통PJT.json",
     displayName: "MovieApp",
     impact:
-      "영화 추천·한줄평·마이페이지를 갖춘 영화 커뮤니티. 첫 풀스택 협업 프로젝트로, 사용자 콘텐츠 흐름(좋아요·한줄평·나중에 볼)을 끝에서 끝까지 묶는 게 과제였다.",
+      "영화 추천·한줄평·마이페이지를 갖춘 영화 커뮤니티. **첫 풀스택 협업 프로젝트**로, 사용자 콘텐츠 흐름(좋아요·한줄평·나중에 볼)을 **끝에서 끝까지 묶는 것**이 과제였다.",
     period: "2025.12 · 1주 · 관통PJT",
     background: {
       problem:
@@ -695,7 +695,7 @@ export const projects: ProjectMeta[] = [
         approach:
           "watchlist 관계를 모델·migration에 추가했다. movies/community/accounts 뷰를 묶어 MyPageView에서 프로필·저장 목록·한줄평을 한 흐름으로 노출. 1주 일정이라 데이터 모델을 먼저 못 박고 화면을 그 위에 얹는 순서로 진행했다.",
         result:
-          "마이페이지가 활동 허브로 자리잡았다. 좋아요·한줄평·나중에 볼이 같은 화면 계층에서 연결되면서 \"내 활동이 모이는 곳\"이라는 기획 의도가 그대로 드러난다.",
+          "마이페이지가 **활동 허브**로 자리잡았다. 좋아요·한줄평·나중에 볼이 같은 화면 계층에서 연결되면서 \"내 활동이 모이는 곳\"이라는 기획 의도가 그대로 드러난다.",
         evidence: {
           label: "MR !7 · 마이페이지",
           href: "https://lab.ssafy.com/ljin2091/final-pjt/-/merge_requests/7",
@@ -708,7 +708,7 @@ export const projects: ProjectMeta[] = [
         approach:
           "MovieView 메인과 movies/views.py에서 추천 영역을 분리했다. 좋아요·한줄평·나중에 볼 신호를 추천 큐의 입력으로 흘려보내고, 알고리즘 자체는 가벼운 규칙 기반으로 두면서 \"신호 → 큐\" 흐름을 먼저 깔았다.",
         result:
-          "메인 피드에 개인화 블록이 따로 자리잡았다. 단순 카탈로그와 구분되는 탐색 진입점이 생겼다.",
+          "메인 피드에 **개인화 블록**이 따로 자리잡았다. 단순 카탈로그와 구분되는 탐색 진입점이 생겼다.",
         evidence: {
           label: "MR !13 · 좋아할 만한 콘텐츠",
           href: "https://lab.ssafy.com/ljin2091/final-pjt/-/merge_requests/13",

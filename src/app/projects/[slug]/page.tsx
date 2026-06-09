@@ -34,6 +34,22 @@ const mediaKindLabel = {
   video: "VIDEO",
 } as const;
 
+/**
+ * 본문 문자열의 `**핵심**` 마크업을 강조(<strong>)로 렌더한다.
+ * 데이터(projects.ts) 어디서든 별표 두 개로 감싸면 그 부분만 굵게 표시된다.
+ */
+function rich(text: string) {
+  return text.split(/(\*\*[^*]+\*\*)/g).map((part, i) =>
+    part.startsWith("**") && part.endsWith("**") ? (
+      <strong key={i} className="font-semibold text-ink">
+        {part.slice(2, -2)}
+      </strong>
+    ) : (
+      part
+    )
+  );
+}
+
 export default async function ProjectDetail({
   params,
 }: {
@@ -77,7 +93,7 @@ export default async function ProjectDetail({
             </h1>
           </ViewTransition>
           <div className="mt-6 border-l-2 pl-5" style={{ borderColor: meta.accentColor }}>
-            <p className="text-xl leading-relaxed sm:text-2xl">{meta.impact}</p>
+            <p className="text-xl leading-relaxed sm:text-2xl">{rich(meta.impact)}</p>
           </div>
 
           <div className="mt-6 flex flex-wrap gap-1.5">
@@ -96,7 +112,7 @@ export default async function ProjectDetail({
                   Problem
                 </p>
                 <p className="mt-3 max-w-prose leading-relaxed text-ink/90">
-                  {meta.background.problem}
+                  {rich(meta.background.problem)}
                 </p>
                 {meta.background.approach && (
                   <>
@@ -104,7 +120,7 @@ export default async function ProjectDetail({
                       Our Approach
                     </p>
                     <p className="mt-3 max-w-prose leading-relaxed">
-                      {meta.background.approach}
+                      {rich(meta.background.approach)}
                     </p>
                   </>
                 )}
@@ -123,7 +139,7 @@ export default async function ProjectDetail({
                             style={{ background: meta.accentColor }}
                             aria-hidden
                           />
-                          <span>{e}</span>
+                          <span>{rich(e)}</span>
                         </li>
                       ))}
                     </ul>
@@ -147,7 +163,7 @@ export default async function ProjectDetail({
               <dt className="font-mono text-xs uppercase tracking-wider text-subtle">
                 My Scope
               </dt>
-              <dd className="mt-2 text-base leading-relaxed">{meta.role.myPart}</dd>
+              <dd className="mt-2 text-base leading-relaxed">{rich(meta.role.myPart)}</dd>
             </div>
           </div>
         </section>
@@ -289,7 +305,7 @@ export default async function ProjectDetail({
                   {td.tech}
                 </h4>
                 <p className="mt-2 text-sm leading-relaxed text-muted">
-                  {td.why}
+                  {rich(td.why)}
                 </p>
               </div>
             ))}
@@ -303,7 +319,7 @@ export default async function ProjectDetail({
               <p className="font-mono text-xs uppercase tracking-wider text-accent-pink">
                 Lesson
               </p>
-              <p className="mt-3 leading-relaxed">{meta.retrospective.lesson}</p>
+              <p className="mt-3 leading-relaxed">{rich(meta.retrospective.lesson)}</p>
             </div>
             <div
               className="rounded-xl border-l-2 bg-panel p-6"
@@ -312,7 +328,7 @@ export default async function ProjectDetail({
               <p className="font-mono text-xs uppercase tracking-wider" style={{ color: meta.accentColor }}>
                 Next Time
               </p>
-              <p className="mt-3 leading-relaxed">{meta.retrospective.nextTime}</p>
+              <p className="mt-3 leading-relaxed">{rich(meta.retrospective.nextTime)}</p>
             </div>
           </div>
         </section>
@@ -364,7 +380,7 @@ function Step({
           {label}
         </span>
       </div>
-      <p className="mt-3 text-sm leading-relaxed">{body}</p>
+      <p className="mt-3 text-sm leading-relaxed">{rich(body)}</p>
     </div>
   );
 }
