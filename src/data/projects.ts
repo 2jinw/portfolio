@@ -147,7 +147,7 @@ export const projects: ProjectMeta[] = [
         result:
           "글래스 미착용 시 **세션 자동 진입 0건**. 운동 시작이 사용자 의도와 일치하면서 통계 데이터의 출처가 분명해졌다.",
         evidence: {
-          label: "MR !83 · 앱-Pi 양방향 운동 시작 핸드셰이크",
+          label: "앱-Pi 양방향 운동 시작 핸드셰이크",
           href: "https://lab.ssafy.com/s14-final/S14P31C203/-/merge_requests/83",
         },
       },
@@ -160,7 +160,7 @@ export const projects: ProjectMeta[] = [
         result:
           "월요일 3회는 **월요일 막대 하나에 누적**된다. 주간 그래프가 비로소 요일을 가리킨다.",
         evidence: {
-          label: "MR !101 · 주간 추세 일자별 7일 슬롯 매핑",
+          label: "주간 추세 일자별 7일 슬롯 매핑",
           href: "https://lab.ssafy.com/s14-final/S14P31C203/-/merge_requests/101",
         },
       },
@@ -173,7 +173,7 @@ export const projects: ProjectMeta[] = [
         result:
           "달력이 **한 달치를 1회 호출로** 받는다. 리스트가 같은 엔드포인트를 그대로 재사용하면서 화면별 분기 코드가 사라졌다.",
         evidence: {
-          label: "MR !25 · GET /sessions 명세 정합",
+          label: "GET /sessions 명세 정합",
           href: "https://lab.ssafy.com/s14-final/S14P31C203/-/merge_requests/25",
         },
       },
@@ -234,7 +234,7 @@ export const projects: ProjectMeta[] = [
         src: "/project-media/imo/workout-plan.png",
         alt: "이두컬 운동의 세트 수·목표 횟수·휴식 시간을 설정하고 하단에 'Pi 응답을 기다리는 중이에요' 안내가 떠 있는 화면",
         caption:
-          "세트·횟수·휴식을 정하면 앱이 라즈베리파이로 운동 계획을 내려보내고 응답을 기다린다. 운동 시작 권한을 앱이 쥐도록 설계한 양방향 핸드셰이크(MR !83)의 출발점.",
+          "세트·횟수·휴식을 정하면 앱이 라즈베리파이로 운동 계획을 내려보내고 응답을 기다린다. 운동 시작 권한을 앱이 쥐도록 설계한 양방향 핸드셰이크의 출발점.",
       },
       {
         kind: "screenshot",
@@ -258,7 +258,7 @@ export const projects: ProjectMeta[] = [
         src: "/project-media/imo/history-calendar.png",
         alt: "월간 캘린더에 운동한 날짜가 점으로 표시되고, 선택한 날의 이두컬 기록과 '하루 상세 분석 보기' 링크가 보이는 운동 기록 화면",
         caption:
-          "달력 한 달치와 날짜별 마커를 GET /sessions 한 번으로 받아 그린다. 달력·리스트가 같은 엔드포인트를 공유하도록 응답 형태를 맞춘 API-07(MR !25)의 화면.",
+          "달력 한 달치와 날짜별 마커를 GET /sessions 한 번으로 받아 그린다. 달력·리스트가 같은 엔드포인트를 공유하도록 응답 형태를 맞춘 결과 화면.",
       },
       {
         kind: "screenshot",
@@ -274,7 +274,7 @@ export const projects: ProjectMeta[] = [
         src: "/project-media/imo/weekly-trend.png",
         alt: "목표근 사용 추세를 요일별 막대(월 16%·화 14%·수 43%)로 보여주는 주간 통계 화면",
         caption:
-          "같은 날 여러 세션을 한 막대로 합쳐 요일별로 그린다. 세션 순서대로 쌓여 엉뚱한 요일에 찍히던 막대를 '일자 기준 7일 슬롯'으로 교체한 MR !101의 결과.",
+          "같은 날 여러 세션을 한 막대로 합쳐 요일별로 그린다. 세션 순서대로 쌓여 엉뚱한 요일에 찍히던 막대를 '일자 기준 7일 슬롯'으로 교체한 결과.",
       },
       {
         kind: "screenshot",
@@ -391,7 +391,7 @@ export const projects: ProjectMeta[] = [
         result:
           "도킹 이후 **3단계 사이클이 큐 위에서 자동으로** 굴러간다. 멀티 도킹 시나리오가 한 번 시작되면 같은 패턴으로 반복된다.",
         evidence: {
-          label: "MR !110 · 멀티 도킹 서비스 런타임 및 service-v1 학습 환경",
+          label: "멀티 도킹 서비스 런타임 및 service-v1 학습 환경",
           href: "https://lab.ssafy.com/s14-mobility-smarthome-sub1/S14P21C206/-/merge_requests/110",
         },
       },
@@ -404,7 +404,7 @@ export const projects: ProjectMeta[] = [
         result:
           "6/12/18대 실험이 **같은 코드베이스에서 config만 갈아 끼우는 분기**로 굴러간다. 환경 재구성에 들어가던 시간이 학습 튜닝 쪽으로 옮겨갔다.",
         evidence: {
-          label: "MR !156 · AMR 최적대수 스케일링 실험 환경",
+          label: "AMR 최적대수 스케일링 실험 환경",
           href: "https://lab.ssafy.com/s14-mobility-smarthome-sub1/S14P21C206/-/merge_requests/156",
         },
       },
@@ -417,7 +417,7 @@ export const projects: ProjectMeta[] = [
         result:
           "**코드 push가 곧장 배포·재현으로** 이어진다. 팀원이 각자 로컬 셋업을 다시 빌드하던 비용이 \"머지 후 자동\"으로 옮겨갔다.",
         evidence: {
-          label: "MR !21 · Docker and EC2 deployment setup",
+          label: "Docker and EC2 deployment setup",
           href: "https://lab.ssafy.com/s14-mobility-smarthome-sub1/S14P21C206/-/merge_requests/21",
         },
       },
@@ -578,7 +578,7 @@ export const projects: ProjectMeta[] = [
         result:
           "프로젝트 상세 → 씬 편집 진입 흐름이 다시 일정해졌다. 협업 UI와 MiniTimeline이 **같은 화면 계층**에 올라갔고, 데모 직전 회귀의 원인 범위가 좁아졌다.",
         evidence: {
-          label: "MR !70 · 라우팅 수정",
+          label: "라우팅 수정",
           href: "https://lab.ssafy.com/s14-webmobile1-sub1/S14P11C205/-/merge_requests/70",
         },
       },
@@ -737,7 +737,7 @@ export const projects: ProjectMeta[] = [
         result:
           "마이페이지가 **활동 허브**로 자리잡았다. 좋아요·한줄평·나중에 볼이 같은 화면 계층에서 연결되면서 \"내 활동이 모이는 곳\"이라는 기획 의도가 그대로 드러난다.",
         evidence: {
-          label: "MR !7 · 마이페이지",
+          label: "마이페이지",
           href: "https://lab.ssafy.com/ljin2091/final-pjt/-/merge_requests/7",
         },
       },
@@ -750,7 +750,7 @@ export const projects: ProjectMeta[] = [
         result:
           "메인 피드에 **개인화 블록**이 따로 자리잡았다. 단순 카탈로그와 구분되는 탐색 진입점이 생겼다.",
         evidence: {
-          label: "MR !13 · 좋아할 만한 콘텐츠",
+          label: "좋아할 만한 콘텐츠",
           href: "https://lab.ssafy.com/ljin2091/final-pjt/-/merge_requests/13",
         },
       },
