@@ -828,12 +828,36 @@ export const projects: ProjectMeta[] = [
     ],
     media: [
       {
-        kind: "preview",
-        title: "대표 화면 보드",
-        src: "/project-media/movie/preview.svg",
-        alt: "MovieApp의 추천 피드와 마이페이지를 요약한 보드",
+        kind: "screenshot",
+        title: "메인 홈 · 개인화 피드",
+        src: "/project-media/movie/home.png",
+        alt: "상단 히어로와 '내가 좋아할 만한 콘텐츠'·'인기 콘텐츠' 포스터 행으로 구성된 내맘시네마 메인 홈 화면",
         caption:
-          "실제 화면 캡처가 남아 있지 않아, 추천 피드와 마이페이지 중심으로 기능 구성을 다시 정리한 포트폴리오용 보드.",
+          "상단 히어로와 '내가 좋아할 만한 콘텐츠'·'인기 콘텐츠' 행으로 추천을 노출한다. 좋아요·한줄평 같은 사용자 반응 신호를 추천 큐의 입력으로 흘려보낸 결과.",
+      },
+      {
+        kind: "screenshot",
+        title: "영화 상세",
+        src: "/project-media/movie/detail.png",
+        alt: "영화 줄거리·평점과 함께 비슷한 작품을 이어 보여주는 영화 상세 화면",
+        caption:
+          "줄거리·평점과 함께 비슷한 작품을 이어 보여준다. 좋아요·한줄평·나중에 볼이 여기서 출발해 마이페이지로 모인다.",
+      },
+      {
+        kind: "screenshot",
+        title: "AI 영화 추천 챗봇",
+        src: "/project-media/movie/ai-recommend.png",
+        alt: "장르·분위기 키워드 칩과 입력창으로 구성된 AI 영화 추천 챗봇 모달",
+        caption:
+          "장르·분위기 키워드 칩으로 대화를 유도하고, 자연어 질문에 맞춤 추천을 돌려주는 AI 챗봇. 로컬 DB를 먼저 찾고 없으면 외부 API로 확장 검색한다.",
+      },
+      {
+        kind: "screenshot",
+        title: "커뮤니티 · 리뷰 검색",
+        src: "/project-media/movie/community.png",
+        alt: "왼쪽 영화 리뷰(한줄평) 검색과 오른쪽 자유게시판으로 구성된 커뮤니티 화면",
+        caption:
+          "왼쪽 영화 리뷰(한줄평) 검색과 오른쪽 자유게시판을 한 화면에 묶었다. 영화 활동과 커뮤니티 글이 같은 공간에서 연결된다.",
       },
       {
         kind: "architecture",
