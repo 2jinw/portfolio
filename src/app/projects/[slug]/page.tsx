@@ -7,6 +7,8 @@ import { profile } from "@/data/profile";
 import { loadProject } from "@/lib/load-project";
 import { asset } from "@/lib/asset";
 import { TechBadge } from "@/components/tech-badge";
+import { ScreenshotCarousel } from "@/components/screenshot-carousel";
+import type { ProjectMedia } from "@/data/projects";
 
 export async function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -171,58 +173,17 @@ export default async function ProjectDetail({
         <section className="mt-20">
           <SectionLabel n={sectionNum(2)} title="Visuals" />
           <div className="mt-6 grid grid-cols-1 gap-5 lg:grid-cols-2" data-stagger>
-            {meta.media.map((item, i) => (
-              <figure
-                key={i}
-                className={`flex flex-col overflow-hidden rounded-2xl border border-line bg-panel ${
-                  item.kind === "architecture" || item.kind === "video"
-                    ? "lg:col-span-2"
-                    : ""
-                }`}
-              >
-                <div className="flex items-start justify-between gap-3 border-b border-line px-5 py-4 lg:min-h-[8.5rem]">
-                  <div>
-                    <p className="font-display text-lg font-semibold">{item.title}</p>
-                    {item.caption ? (
-                      <p className="mt-1 text-sm leading-relaxed text-muted">{item.caption}</p>
-                    ) : null}
-                  </div>
-                  <span
-                    className="mt-0.5 shrink-0 rounded-full px-3 py-1 font-mono text-[11px] uppercase tracking-wider"
-                    style={{
-                      color: meta.accentColor,
-                      background: `color-mix(in srgb, ${meta.accentColor} 14%, transparent)`,
-                    }}
-                  >
-                    {mediaKindLabel[item.kind]}
-                  </span>
-                </div>
-                <div className="flex flex-1 items-center bg-page p-4">
-                  {item.kind === "video" ? (
-                    <video
-                      src={asset(item.src)}
-                      controls
-                      preload="metadata"
-                      playsInline
-                      className="aspect-video w-full rounded-xl border border-line bg-black object-contain"
-                    />
-                  ) : (
-                    <Image
-                      src={asset(item.src)}
-                      alt={item.alt}
-                      width={1600}
-                      height={item.kind === "architecture" ? 960 : 900}
-                      unoptimized
-                      className={`w-full rounded-xl border border-line bg-page object-contain ${
-                        item.kind === "architecture"
-                          ? "max-h-[600px]"
-                          : "aspect-[16/10]"
-                      }`}
-                    />
-                  )}
-                </div>
-              </figure>
-            ))}
+            {groupMedia(meta.media).map((block, i) =>
+              block.type === "carousel" ? (
+                <ScreenshotCarousel
+                  key={i}
+                  slides={block.items}
+                  accent={meta.accentColor}
+                />
+              ) : (
+                <MediaFigure key={i} item={block.item} accent={meta.accentColor} />
+              )
+            )}
           </div>
         </section>
 
@@ -351,6 +312,76 @@ export default async function ProjectDetail({
         </footer>
       </div>
     </div>
+  );
+}
+
+type MediaBlock =
+  | { type: "carousel"; items: ProjectMedia[] }
+  | { type: "single"; item: ProjectMedia };
+
+/** 연속된 screenshot은 하나의 캐러셀로, 나머지는 개별 figure로 묶는다. */
+function groupMedia(media: ProjectMedia[]): MediaBlock[] {
+  const blocks: MediaBlock[] = [];
+  for (const item of media) {
+    if (item.kind === "screenshot") {
+      const last = blocks[blocks.length - 1];
+      if (last && last.type === "carousel") last.items.push(item);
+      else blocks.push({ type: "carousel", items: [item] });
+    } else {
+      blocks.push({ type: "single", item });
+    }
+  }
+  return blocks;
+}
+
+function MediaFigure({ item, accent }: { item: ProjectMedia; accent: string }) {
+  const fullWidth = item.kind === "architecture" || item.kind === "video";
+  return (
+    <figure
+      className={`flex flex-col overflow-hidden rounded-2xl border border-line bg-panel ${
+        fullWidth ? "lg:col-span-2" : ""
+      }`}
+    >
+      <div className="flex items-start justify-between gap-3 border-b border-line px-5 py-4 lg:min-h-[8.5rem]">
+        <div>
+          <p className="font-display text-lg font-semibold">{item.title}</p>
+          {item.caption ? (
+            <p className="mt-1 text-sm leading-relaxed text-muted">{item.caption}</p>
+          ) : null}
+        </div>
+        <span
+          className="mt-0.5 shrink-0 rounded-full px-3 py-1 font-mono text-[11px] uppercase tracking-wider"
+          style={{
+            color: accent,
+            background: `color-mix(in srgb, ${accent} 14%, transparent)`,
+          }}
+        >
+          {mediaKindLabel[item.kind]}
+        </span>
+      </div>
+      <div className="flex flex-1 items-center bg-page p-4">
+        {item.kind === "video" ? (
+          <video
+            src={asset(item.src)}
+            controls
+            preload="metadata"
+            playsInline
+            className="aspect-video w-full rounded-xl border border-line bg-black object-contain"
+          />
+        ) : (
+          <Image
+            src={asset(item.src)}
+            alt={item.alt}
+            width={1600}
+            height={item.kind === "architecture" ? 960 : 900}
+            unoptimized
+            className={`w-full rounded-xl border border-line bg-page object-contain ${
+              item.kind === "architecture" ? "max-h-[600px]" : "aspect-[16/10]"
+            }`}
+          />
+        )}
+      </div>
+    </figure>
   );
 }
 

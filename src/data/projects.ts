@@ -285,14 +285,6 @@ export const projects: ProjectMeta[] = [
           "Gemini 기반 운동 챗봇이 자세·루틴 질문에 멀티턴으로 답한다. 추천 칩으로 대화를 유도하고, 백엔드에서 IP 단위 rate limit으로 호출을 보호했다.",
       },
       {
-        kind: "screenshot",
-        title: "백엔드 데이터 모델 (ERD)",
-        src: "/project-media/imo/db-erd.png",
-        alt: "users·user_settings·workout_sessions·workout_set_results·calibrations·muscle_maps·balance_summaries 테이블과 관계를 그린 ERD",
-        caption:
-          "세션·세트 결과·캘리브레이션·근육맵·좌우 밸런스를 분리한 PostgreSQL 스키마. 통계·챗봇·디바이스 데이터가 한 모델 위에서 연결되도록 직접 설계했다.",
-      },
-      {
         kind: "architecture",
         title: "시스템 아키텍처",
         src: "/project-media/imo/architecture.png",
