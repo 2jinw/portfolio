@@ -247,10 +247,10 @@ export const projects: ProjectMeta[] = [
       {
         kind: "architecture",
         title: "시스템 아키텍처",
-        src: "/project-media/imo/architecture.svg",
-        alt: "IMO의 smart glass, Raspberry Pi, backend, Flutter app, Redis/Gemini 구성을 설명한 다이어그램",
+        src: "/project-media/imo/architecture.png",
+        alt: "IMO 아키텍처. 근전도 센서·ESP32·Raspberry Pi 5·스마트 글래스가 Flutter 앱과 연결되고, 백엔드는 Nginx→FastAPI→PostgreSQL/Redis→Gemini, CI는 GitLab→Jenkins→Mattermost로 구성된다.",
         caption:
-          "스마트 글래스, Pi, 서버, 앱, Redis/Gemini가 어떻게 연결되는지 포트폴리오용으로 재구성한 아키텍처.",
+          "센서·ESP32·Pi 5·스마트 글래스에서 올라온 데이터가 Flutter 앱으로 모이고, Nginx→FastAPI→PostgreSQL/Redis 백엔드가 Gemini 챗봇까지 연결한다. 오른쪽 아래는 GitLab→Jenkins→Mattermost CI 파이프라인.",
       },
     ],
     featuredMRs: [
@@ -433,11 +433,11 @@ export const projects: ProjectMeta[] = [
       },
       {
         kind: "architecture",
-        title: "실험/배포 아키텍처",
-        src: "/project-media/amr/architecture.svg",
-        alt: "Isaac Lab, 멀티 도킹 런타임, dashboard, Jenkins/Caddy/EC2 흐름을 그린 아키텍처",
+        title: "시스템 아키텍처",
+        src: "/project-media/amr/architecture.png",
+        alt: "적재적소 아키텍처 3계층. 로보틱스·디지털 트윈(UR20·AMR·Onshape·NVIDIA Isaac Sim) → 백엔드·코어 인프라(Server·Database·Django·Ubuntu·Docker·PostgreSQL·Jenkins) → 프론트엔드 대시보드(Vue.js 3·Pinia·Vuetify·ApexCharts)가 실시간으로 이어진다.",
         caption:
-          "학습 환경, 런타임, 텔레메트리, 배포 경로를 한 장으로 정리한 포트폴리오용 아키텍처.",
+          "Isaac Sim 디지털 트윈에서 만든 AMR·로봇팔 상태가 Django/Docker/PostgreSQL 백엔드로 흘러가고, Vue·ApexCharts 대시보드가 실시간(Real-time)으로 받아 그리는 3계층 관제 파이프라인.",
       },
     ],
     featuredMRs: [
