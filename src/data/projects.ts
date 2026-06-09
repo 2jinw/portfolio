@@ -229,20 +229,68 @@ export const projects: ProjectMeta[] = [
     ],
     media: [
       {
-        kind: "preview",
-        title: "대표 흐름 보드",
-        src: "/project-media/imo/preview.svg",
-        alt: "IMO 앱의 온보딩, 운동 시작, 통계/챗봇 흐름을 요약한 다이어그램",
+        kind: "screenshot",
+        title: "운동 계획 설정 · Pi 핸드셰이크",
+        src: "/project-media/imo/workout-plan.png",
+        alt: "이두컬 운동의 세트 수·목표 횟수·휴식 시간을 설정하고 하단에 'Pi 응답을 기다리는 중이에요' 안내가 떠 있는 화면",
         caption:
-          "실제 앱 캡처가 남아 있지 않아, 포트폴리오용으로 핵심 사용자 흐름을 다시 정리한 보드.",
+          "세트·횟수·휴식을 정하면 앱이 라즈베리파이로 운동 계획을 내려보내고 응답을 기다린다. 운동 시작 권한을 앱이 쥐도록 설계한 양방향 핸드셰이크(MR !83)의 출발점.",
       },
       {
         kind: "screenshot",
-        title: "캐릭터 자산",
-        src: "/project-media/imo/mascot-report-wait.png",
-        alt: "IMO 프로젝트의 운동 결과 대기 화면용 캐릭터 자산",
+        title: "센서 부착 가이드 (EMG·IMU)",
+        src: "/project-media/imo/sensor-guide.png",
+        alt: "인체 그림 위에 EMG 4개·IMU 3개 센서의 부착 위치(E1~E4, I1~I3)를 표시한 센서 부착 안내 화면",
         caption:
-          "운동 종료 후 결과 대기 흐름에 활용한 대표 캐릭터 자산. 앱의 친화적 톤을 만드는 요소였다.",
+          "근전도(EMG) 4개·관성(IMU) 3개 센서를 인체 위치에 매핑해 안내한다. 디바이스에서 올라오는 근활성도를 0~100 스케일로 통일해 앱·서버가 같은 기준으로 읽도록 맞췄다.",
+      },
+      {
+        kind: "screenshot",
+        title: "캘리브레이션 → 운동 시작",
+        src: "/project-media/imo/calibration.png",
+        alt: "REST/MVC 기준값 측정을 마치고 '글래스를 착용해주세요' 안내와 '운동 시작' 버튼이 활성화된 캘리브레이션 완료 화면",
+        caption:
+          "안정 자세·최대 수축(REST/MVC) 기준값을 잡은 뒤 글래스를 쓰면 '운동 시작'이 열린다. Pi가 임의로 monitoring에 진입하지 않고 사용자 버튼을 트리거로 삼는 흐름.",
+      },
+      {
+        kind: "screenshot",
+        title: "운동 기록 캘린더",
+        src: "/project-media/imo/history-calendar.png",
+        alt: "월간 캘린더에 운동한 날짜가 점으로 표시되고, 선택한 날의 이두컬 기록과 '하루 상세 분석 보기' 링크가 보이는 운동 기록 화면",
+        caption:
+          "달력 한 달치와 날짜별 마커를 GET /sessions 한 번으로 받아 그린다. 달력·리스트가 같은 엔드포인트를 공유하도록 응답 형태를 맞춘 API-07(MR !25)의 화면.",
+      },
+      {
+        kind: "screenshot",
+        title: "하루 운동 상세 분석",
+        src: "/project-media/imo/day-detail.png",
+        alt: "근육 활성도(이두근 14%·전완근 46%)와 좌우 밸런스(주의·심각), 운동별 기록을 보여주는 하루 운동 상세 화면",
+        caption:
+          "하루 단위로 근육 활성도와 좌우 밸런스를 집계해 보여준다. Pi가 보낸 raw 데이터를 백엔드 통계 API가 가공해 '주의/심각' 같은 해석까지 붙인 결과.",
+      },
+      {
+        kind: "screenshot",
+        title: "주간 추세 통계",
+        src: "/project-media/imo/weekly-trend.png",
+        alt: "목표근 사용 추세를 요일별 막대(월 16%·화 14%·수 43%)로 보여주는 주간 통계 화면",
+        caption:
+          "같은 날 여러 세션을 한 막대로 합쳐 요일별로 그린다. 세션 순서대로 쌓여 엉뚱한 요일에 찍히던 막대를 '일자 기준 7일 슬롯'으로 교체한 MR !101의 결과.",
+      },
+      {
+        kind: "screenshot",
+        title: "AI 코치 챗봇 (Gemini)",
+        src: "/project-media/imo/ai-coach.png",
+        alt: "AI 코치가 푸시업 자세를 단계별로 설명하는 멀티턴 대화 화면",
+        caption:
+          "Gemini 기반 운동 챗봇이 자세·루틴 질문에 멀티턴으로 답한다. 추천 칩으로 대화를 유도하고, 백엔드에서 IP 단위 rate limit으로 호출을 보호했다.",
+      },
+      {
+        kind: "screenshot",
+        title: "백엔드 데이터 모델 (ERD)",
+        src: "/project-media/imo/db-erd.png",
+        alt: "users·user_settings·workout_sessions·workout_set_results·calibrations·muscle_maps·balance_summaries 테이블과 관계를 그린 ERD",
+        caption:
+          "세션·세트 결과·캘리브레이션·근육맵·좌우 밸런스를 분리한 PostgreSQL 스키마. 통계·챗봇·디바이스 데이터가 한 모델 위에서 연결되도록 직접 설계했다.",
       },
       {
         kind: "architecture",
