@@ -498,7 +498,7 @@ export const projects: ProjectMeta[] = [
       {
         kind: "video",
         title: "로봇팔 적재 (도킹 사이클)",
-        src: "/project-media/amr/arm-docking.webm",
+        src: "/project-media/amr/arm-docking.mp4",
         alt: "컨베이어에서 케이지로 물건을 적재하는 로봇팔 동작 영상",
         caption:
           "컨베이어에서 케이지로 적재하는 로봇팔. 도킹 이후 retreat → returning → done 서비스 사이클을 큐 기반으로 정의한 동작이다.",
