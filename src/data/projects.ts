@@ -833,7 +833,7 @@ export const projects: ProjectMeta[] = [
         src: "/project-media/movie/home.png",
         alt: "상단 히어로와 '내가 좋아할 만한 콘텐츠'·'인기 콘텐츠' 포스터 행으로 구성된 내맘시네마 메인 홈 화면",
         caption:
-          "상단 히어로와 '내가 좋아할 만한 콘텐츠'·'인기 콘텐츠' 행으로 추천을 노출한다. 좋아요·한줄평 같은 사용자 반응 신호를 추천 큐의 입력으로 흘려보낸 결과.",
+          "내 좋아요·한줄평 기록을 바탕으로 '내가 좋아할 만한 콘텐츠'를 먼저 띄워주는 메인 화면. 아래로는 인기작이 이어진다.",
       },
       {
         kind: "screenshot",
@@ -841,7 +841,7 @@ export const projects: ProjectMeta[] = [
         src: "/project-media/movie/detail.png",
         alt: "영화 줄거리·평점과 함께 비슷한 작품을 이어 보여주는 영화 상세 화면",
         caption:
-          "줄거리·평점과 함께 비슷한 작품을 이어 보여준다. 좋아요·한줄평·나중에 볼이 여기서 출발해 마이페이지로 모인다.",
+          "영화 한 편의 줄거리·평점을 보고 좋아요·한줄평·나중에 볼을 남기는 상세 화면. 여기서 남긴 활동이 마이페이지로 모인다.",
       },
       {
         kind: "screenshot",
@@ -849,7 +849,7 @@ export const projects: ProjectMeta[] = [
         src: "/project-media/movie/ai-recommend.png",
         alt: "장르·분위기 키워드 칩과 입력창으로 구성된 AI 영화 추천 챗봇 모달",
         caption:
-          "장르·분위기 키워드 칩으로 대화를 유도하고, 자연어 질문에 맞춤 추천을 돌려주는 AI 챗봇. 로컬 DB를 먼저 찾고 없으면 외부 API로 확장 검색한다.",
+          "키워드를 고르거나 직접 물어보면 취향에 맞는 영화를 찾아주는 AI 챗봇. '액션', '감동 드라마' 같은 칩으로 바로 시작할 수 있다.",
       },
       {
         kind: "screenshot",
@@ -857,15 +857,7 @@ export const projects: ProjectMeta[] = [
         src: "/project-media/movie/community.png",
         alt: "왼쪽 영화 리뷰(한줄평) 검색과 오른쪽 자유게시판으로 구성된 커뮤니티 화면",
         caption:
-          "왼쪽 영화 리뷰(한줄평) 검색과 오른쪽 자유게시판을 한 화면에 묶었다. 영화 활동과 커뮤니티 글이 같은 공간에서 연결된다.",
-      },
-      {
-        kind: "architecture",
-        title: "서비스 구성",
-        src: "/project-media/movie/architecture.svg",
-        alt: "Vue.js, Django REST, TMDB API로 구성된 MovieApp 아키텍처",
-        caption:
-          "Vue 프론트, DRF 백엔드, TMDB 메타데이터 연동, 사용자 콘텐츠 흐름을 설명한 아키텍처.",
+          "왼쪽에서 영화 리뷰를 검색하고, 오른쪽 게시판에서 자유롭게 글을 나누는 커뮤니티 화면.",
       },
     ],
     featuredMRs: [
