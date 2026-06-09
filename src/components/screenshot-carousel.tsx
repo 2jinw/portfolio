@@ -31,10 +31,10 @@ export function ScreenshotCarousel({
   return (
     <figure className="flex flex-col overflow-hidden rounded-2xl border border-line bg-panel lg:col-span-2">
       <div className="flex items-start justify-between gap-3 border-b border-line px-5 py-4">
-        <div>
+        <div className="min-h-[5.25rem]">
           <p className="font-display text-lg font-semibold">{cur.title}</p>
           {cur.caption ? (
-            <p className="mt-1 text-sm leading-relaxed text-muted">{cur.caption}</p>
+            <p className="mt-1.5 text-[0.95rem] leading-relaxed text-muted">{cur.caption}</p>
           ) : null}
         </div>
         <span
